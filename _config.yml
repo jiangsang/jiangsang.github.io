@@ -4,10 +4,10 @@
 # ---------------------------------------------------------------
 
 # Site
-title: Sevmen's Blog
+title: jianger's Blog
 subtitle: Peace & Love
 description:
-author: Sevmen
+author: jianger
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: zh-Hans
 date_format: '%Y-%m-%d'
@@ -79,7 +79,7 @@ plugins:
 favicon: /assets/favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "Sevmen Blog,Sevmen"
+keywords: "jianger's Blog,jianger"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -329,7 +329,7 @@ post_wordcount:
 
 # Declare license on posts
 post_copyright:
-  enable: true
+  enable: false
   license: CC BY-NC-SA 3.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
 
@@ -435,12 +435,11 @@ changyan:
 
 # Support for gitalk comments system.
 gitalk:
-  enable: false
-  clientID: # 54730ddf7b9420460c03
-  clientSecret: # c05684701b25ff1c19ea0c01ce4d80c125e0707d
-  repo: # colingpt.github.io
-  owner: # colingpt
-  admin: # colingpt
+  enable: true
+  clientSecret:  9d12eacea731c393f72efc7424c6743b477f75ac
+  repo:  jiangsang.github.io
+  owner:  jiangsang
+  admin:  jiangsang
 
 # Baidu Share
 # Available value:
