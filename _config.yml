@@ -345,8 +345,8 @@ post_copyright:
 #   enabled: [true/false] - Replace with specific image
 #   image: url-of-image   - Images's url
 custom_logo:
-  enabled: true
-  image: 0470905D-D516-43E7-8EFE-6B06BB3494B2.jpeg
+  enabled: false
+  image: 
 
 
 # Code Highlight theme
@@ -435,9 +435,9 @@ changyan:
 
 # Support for gitalk comments system.
 gitalk:
-  enable: true
-  clientID: 80c5243927a281baa501
-  clientSecret:  9d12eacea731c393f72efc7424c6743b477f75ac
+  enable: false
+  clientID: #80c5243927a281baa501
+  clientSecret:  #9d12eacea731c393f72efc7424c6743b477f75ac
   repo:  jiangsang.github.io
   owner:  jiangsang
   admin:  jiangsang
