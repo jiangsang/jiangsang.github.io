@@ -215,7 +215,7 @@ font:
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
   GitHub: https://github.com/jiangsang
-  Envelope: 736750759@qq.com
+  Email: 736750759@qq.com
 
 
 # Social Links Icons
@@ -230,7 +230,7 @@ social_icons:
   GitHub: github
   Twitter: twitter
   Weibo: weibo
-  Envelope: envelope
+  Email: envelope-o
 
 
 #侧边栏头像
