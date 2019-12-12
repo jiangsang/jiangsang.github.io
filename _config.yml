@@ -215,6 +215,7 @@ font:
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
   GitHub: https://github.com/jiangsang
+  Email: 736750759@qq.com
 
 
 # Social Links Icons
@@ -229,9 +230,10 @@ social_icons:
   GitHub: github
   Twitter: twitter
   Weibo: weibo
+  Email: envelope
 
 
-# Sidebar Avatar
+#侧边栏头像
 # in directory: /assets/images/avatar.gif
 #avatar:
 
@@ -455,7 +457,7 @@ gitalk:
 #add_this_id:
 
 # Share
-duoshuo_share: true
+duoshuo_share: false
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
@@ -479,10 +481,10 @@ duoshuo_share: true
 # user_id must NOT be null when admin_enable is true!
 # you can visit http://dev.duoshuo.com get duoshuo user id.
 duoshuo_info:
-  ua_enable: true
+  ua_enable: false
   admin_enable: false
-  user_id: 0
-  #admin_nickname: Author
+  user_id: #12345
+  admin_nickname: #jianger
 
 
 # Facebook SDK Support.
