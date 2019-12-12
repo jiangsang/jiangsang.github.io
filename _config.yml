@@ -381,7 +381,7 @@ han: true
 # Disqus
 disqus:
   enable: true
-  shortname: Sevmen
+  shortname: jianger
   count: true
   # hide comments (visitors need to click to load the comments)
   # count need to be false when hide is true
@@ -436,7 +436,7 @@ changyan:
 # Support for gitalk comments system.
 gitalk:
   enable: true
-  Client ID: 80c5243927a281baa501
+  clientID: 80c5243927a281baa501
   clientSecret:  9d12eacea731c393f72efc7424c6743b477f75ac
   repo:  jiangsang.github.io
   owner:  jiangsang
