@@ -442,9 +442,9 @@ valine:
   enable: true
   appid: e1OuTd58aBj3h9ptV4oIaNBY-9Nh9j0Va
   appkey: CqYVue1Ivtz4TJnBVjUvY9NY
-  notify: true # mail notifier , https://github.com/xCss/Valine/wiki
-  verify: true # Verification code
-  placeholder: 非Github帐号登录用户，在此处留言 # comment box placeholder
+  notify: true
+  verify: true
+  placeholder: 非Github帐号登录用户，在此处留言
   avatar:   # gravatar style
   guest_info: jianger,736750759@qq.com,jianger.sapce # custom comment header
   pageSize: 10 # pagination size
