@@ -433,7 +433,22 @@ changyan:
 
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
-livere_uid: MTAyMC80NzkxNC8yNDQxMQ==
+#livere_uid: MTAyMC80NzkxNC8yNDQxMQ==
+
+# Valine.
+# You can get your appid and appkey from https://leancloud.app
+# more info please open https://valine.js.org
+valine:
+  enable: true
+  appid: e1OuTd58aBj3h9ptV4oIaNBY-9Nh9j0Va
+  appkey: CqYVue1Ivtz4TJnBVjUvY9NY
+  notify: true # mail notifier , https://github.com/xCss/Valine/wiki
+  verify: true # Verification code
+  placeholder: 非Github帐号登录用户，在此处留言 # comment box placeholder
+  avatar:   # gravatar style
+  guest_info: jianger,736750759@qq.com,jianger.sapce # custom comment header
+  pageSize: 10 # pagination size
+  # path: window.location.pathname
 
 # Support for gitalk comments system.
 gitalk:
