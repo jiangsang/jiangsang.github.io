@@ -21,7 +21,7 @@
         </noscript>
       </div>
     <!-- Valine 评论框 start -->
-    {% if site.valine.enable %}
+    {% elsif site.valine.enable %}
       <div id="comments"></div>
       <!--Leancloud 操作库:-->
       <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
@@ -39,8 +39,7 @@
             verify: '{{ site.valine.verify }}',
         })
       </script>
-    {% endif %}
-	  <!-- Valine 评论框 end -->
+      <!-- Valine 评论框 end -->
     {% elsif site.hypercomments_id %}
       <div id="hypercomments_widget"></div>
     {% elsif site.gentie_productKey %}
