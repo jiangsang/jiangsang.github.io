@@ -443,10 +443,10 @@ valine:
   appid: e1OuTd58aBj3h9ptV4oIaNBY-9Nh9j0Va
   appkey: CqYVue1Ivtz4TJnBVjUvY9NY
   notify: true
-  verify: true
-  placeholder: 非Github帐号登录用户，在此处留言
+  verify: false
+  placeholder: 来呀，快活呀~
   avatar:   # gravatar style
-  guest_info: jianger,736750759@qq.com,jianger.sapce # custom comment header
+  guest_info: nick,mail,link # custom comment header
   pageSize: 10 # pagination size
   # path: window.location.pathname
 
