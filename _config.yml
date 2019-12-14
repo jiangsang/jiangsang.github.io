@@ -443,7 +443,7 @@ valine:
   appid: e1OuTd58aBj3h9ptV4oIaNBY-9Nh9j0Va
   appkey: CqYVue1Ivtz4TJnBVjUvY9NY
   notify: true
-  verify: false
+  verify: true
   placeholder: 来呀，快活呀~
   avatar:   # gravatar style
   guest_info: nick,mail,link # custom comment header
