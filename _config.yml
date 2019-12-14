@@ -5,8 +5,8 @@
 
 # Site
 title: jianger's Blog
-subtitle: Peace & Love
-description:
+subtitle: 热爱生活｜分享技术｜鼓捣科技
+description: 热爱生活｜分享技术｜鼓捣科技
 author: jianger
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: zh-Hans
@@ -324,10 +324,10 @@ post_wordcount:
   separated_meta: true
 
 # Wechat Subscriber
-wechat_subscriber:
-  enabled: true
-  qcode: WeChat.jpg
-  description: 扫一扫，添加好友，欢迎骚扰！
+#wechat_subscriber:
+  #enabled: true
+  #qcode: WeChat.jpg
+  #description: 扫一扫，添加好友，欢迎骚扰！
 
 # Declare license on posts
 post_copyright:
