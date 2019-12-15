@@ -106,7 +106,9 @@ canonical: true
 
 # Change headers hierarchy on site-subtitle (will be main site description) and on all post/pages titles for better SEO-optimization.
 seo: true
-
+#首先轮播图开启
+carousel:
+  enable: true
 # If true, will add site-subtitle to index page, added in jekyll config.
 # subtitle: Subtitle
 index_with_subtitle: false
