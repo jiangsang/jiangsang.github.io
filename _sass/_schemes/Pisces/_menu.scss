@@ -21,6 +21,7 @@
     box-sizing: border-box;
     padding: 5px 20px;
     text-align: left;
+    float: left
     line-height: inherit;
     transition-property: background-color;
     @include the-transition();
