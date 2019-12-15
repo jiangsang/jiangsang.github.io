@@ -311,10 +311,8 @@
 
       <!-- 轮播（Carousel）指标 -->
       <ol class="carousel-indicators">
-      {% set index = 0 %}
-      {% for item in theme.carousel.item %}
-        <li data-target="#myCarousel" data-slide-to="{{index}}"></li>
-        {% set index = index+1 %}
+      {% for item in site.carousel.item %}
+        <li data-target="#myCarousel" data-slide-to="{{ item }}"></li>
       {% endfor %}
       </ol>
 
