@@ -320,18 +320,11 @@
 
       <!-- 轮播（Carousel）项目 -->
       <div class="carousel-inner" style="height: 280px; border-radius: 10px; width: 100%;">
-       {% set act = 0 %}
-       {% for item in theme.carousel.item %}
-          {% if act===0 %}
-          <a class="item active" href="{{ url_for(item.link) }}" target="_blank" style="height: 100%;">
+      	{% for item in site.carousel.item[0] %}
+          <a class="item" href="{{ url_for(item.link) }}" target="_blank" style="height: 100%;">
             {# 添加 class="nofancybox" 解决fancybox和图片链接冲突 #}
             <img src="{{item.img}}" class="nofancybox"  style="width: 100%; height: 100%" >
           </a>
-          {% set act = 1 %}
-          {% elseif act===1 %}
-            <a class="item" href="{{ url_for(item.link) }}" target="_blank" style="height: 100%;">
-              <img src="{{item.img}}" class="nofancybox"  style="width: 100%; height: 100%;" >
-            </a>
         {% endif %}
       {% endfor %}
       </div>
