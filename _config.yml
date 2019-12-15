@@ -395,7 +395,7 @@ highlight_theme: normal
 # MathJax Support
 mathjax:
   enable: true
-  per_page: true
+  per_page: false
   cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML
 
 # Han Support docs: https://hanzi.pro/
@@ -474,7 +474,7 @@ valine:
   appkey: CqYVue1Ivtz4TJnBVjUvY9NY
   notify: true
   verify: true
-  placeholder: 来呀，快活呀~
+  placeholder: 来呀，快活呀~本评论系统已接入邮箱提醒功能，想要提醒记得评论时留下邮箱！
   avatar:   # gravatar style
   guest_info: nick,mail,link # custom comment header
   pageSize: 10 # pagination size
