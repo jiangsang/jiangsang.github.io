@@ -1,7 +1,7 @@
 {% assign posts = site.posts %}
 {% if site.paginate > 0 %}{% assign posts = paginator.posts %}{% endif %}
   <!--轮播图-->
-{% include '_custom/header.html' %}
+{% include _custom/header.html %}
 <section id="posts" class="posts-expand">
   {% for post in posts %}
     {% assign is_index = true %}
