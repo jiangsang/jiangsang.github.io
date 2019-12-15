@@ -256,7 +256,7 @@ creative_commons: by-nc-sa
 #creative_commons:
 badApplePlayer:
   enable: true
-  XlchKey: BZ9DLOyFjh # 播放器Key  
+  XlchKey: L123 # 播放器Key  
 
 sidebar:
   # Sidebar Position, available value: left | right
