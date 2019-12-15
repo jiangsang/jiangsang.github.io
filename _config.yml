@@ -254,7 +254,9 @@ toc:
 # Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
 creative_commons: by-nc-sa
 #creative_commons:
-
+badApplePlayer:
+  enable: true
+  XlchKey: BZ9DLOyFjh # 播放器Key  
 
 sidebar:
   # Sidebar Position, available value: left | right
