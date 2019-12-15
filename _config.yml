@@ -122,6 +122,8 @@ menu:
   about: /about/
   archives: /archives/
   tags: /tags/
+  life: /life/
+  album: /album/
   #sitemap: /sitemap.xml
   #commonweal: /404.html
 
@@ -139,6 +141,8 @@ menu_icons:
   categories: th
   schedule: calendar
   tags: tags
+  life: apple
+  album: camera-retro
   archives: archive
   sitemap: sitemap
   commonweal: heartbeat
