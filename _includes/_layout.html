@@ -33,6 +33,9 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          {% if site.carousel.enable %}
+            {% include custom/header.html %}
+          {% endif %}
           <div id="content" class="content">
             {{ content }}
           </div>
