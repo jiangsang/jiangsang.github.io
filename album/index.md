@@ -222,7 +222,8 @@ function loadXMLDoc(xmlUrl)
 // }
 // xmlhttp.open("GET","https://images-1256429518.cos.ap-chengdu.myqcloud.com",false);
 // xmlhttp.send();
-xmlDoc=loadXMLDoc("https://album-1300776923.cos.ap-shanghai.myqcloud.com/");
+xmllink="https://album-1300776923.cos.ap-shanghai.myqcloud.com/";
+xmlDoc=loadXMLDoc(xmllink);
 var urls=xmlDoc.getElementsByTagName('Key');
 var date=xmlDoc.getElementsByTagName('LastModified');
 var wid=250;
