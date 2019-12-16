@@ -324,11 +324,11 @@
             <a class="item active" href="{{ item.link }}" target="_blank" style="height: 100%;">
             	<img src="{{item.img}}" class="nofancybox"  style="width: 100%; height: 100%" >
 	    </a>
-	    {% my_counter=my_counter+1 %}
           {% else %}
             <a class="item" href="{{ item.link }}" target="_blank" style="height: 100%;">
               <img src="{{item.img}}" class="nofancybox"  style="width: 100%; height: 100%;" >
-            </a>
+	    </a>
+	  {% assign my_counter=my_counter+1 %}
         {% endif %}
       {% endfor %}
       </div>
