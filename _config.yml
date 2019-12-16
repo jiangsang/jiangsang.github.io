@@ -4,7 +4,7 @@
 # ---------------------------------------------------------------
 
 # Site
-title: jianger's Blog
+title: Jianger's Blog
 subtitle: 热爱生活｜分享技术｜鼓捣科技
 description: 热爱生活｜分享技术｜鼓捣科技
 author: jianger
@@ -14,7 +14,7 @@ date_format: '%Y-%m-%d'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com' and baseurl as '/child'
-url:
+url: https://jiangsang.github.io
 baseurl:
 permalink: pretty
 
