@@ -23,9 +23,11 @@
 		background: rgba(28, 25, 25, 0.6);
 		border-bottom: unset;
 	}
-	.menu .menu-item a{
-		font-weight: 300;
-    	color: #e6eaed;
+	.header-inner,.sidebar-inner{
+		display: none;
+	}
+	.content-wrap{
+	width: 100%;
 	}
     .imgbox{
         width: 100%;
