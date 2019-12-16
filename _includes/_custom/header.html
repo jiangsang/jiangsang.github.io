@@ -311,10 +311,8 @@
 
       <!-- 轮播（Carousel）指标 -->
       <ol class="carousel-indicators">
-      {% assign index = 0 %}
       {% for item in site.carousel.item %}
-        <li data-target="#myCarousel" data-slide-to="{{index}}"></li>
-        {% assign index = index+1 %}
+        <li data-target="#myCarousel" data-slide-to="{{forloop.index0}}"></li>
       {% endfor %}
       </ol>
 
@@ -322,7 +320,7 @@
       <div class="carousel-inner" style="height: 280px; border-radius: 10px; width: 100%;">
        {% assign act = 0 %}
        {% for item in site.carousel.item %}
-          {% if act===0 %}
+          {% if act==0 %}
             <a class="item active" href="{{ url_for(item.link) }}" target="_blank" style="height: 100%;">
             {# 添加 class="nofancybox" 解决fancybox和图片链接冲突 #}
             	<img src="{{item.img}}" class="nofancybox"  style="width: 100%; height: 100%" >
