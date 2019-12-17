@@ -108,10 +108,10 @@ canonical: true
 seo: true
 #首先轮播图开启
 carousel:
-  enable: true
+  enable: false
   item: [
     {
-      'link': 'https://leafjame.github.io',
+      'link': 'https://jiangsang.github.io',
       'img': 'https://s2.ax1x.com/2019/10/12/ujKrse.jpg'
     },
     {
