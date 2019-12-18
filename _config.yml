@@ -4,7 +4,7 @@
 # ---------------------------------------------------------------
 
 # Site
-title: jianger's Blog
+title: Jianger's Blog
 subtitle: 热爱生活｜分享技术｜鼓捣科技
 description: 热爱生活｜分享技术｜鼓捣科技
 author: jianger
@@ -14,7 +14,7 @@ date_format: '%Y-%m-%d'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com' and baseurl as '/child'
-url:
+url: https://jiangsang.github.io
 baseurl:
 permalink: pretty
 
@@ -111,24 +111,16 @@ carousel:
   enable: true
   item: [
     {
-      'link': 'https://leafjame.github.io',
-      'img': 'https://s2.ax1x.com/2019/10/12/ujKrse.jpg'
+      'link': 'https://jiangsang.github.io',
+      'img': 'https://jiangsang.github.io/assets/images/alita.JPG'
     },
     {
       'link': 'https://mailchi.mp/e92415d27722/leaf',
       'img': 'https://s2.ax1x.com/2019/10/24/KNHdCq.jpg'
     },
     {
-      'link': 'https://github.com/leafjame/hexo-theme-next5-leaf',
-      'img': 'https://s2.ax1x.com/2019/10/10/u7DWuV.jpg'
-    },
-    {
       'link': 'https://leafjame.github.io/photos/',
       'img': 'https://s2.ax1x.com/2019/10/04/uBEMT0.jpg'
-    },
-    {
-      'link': 'https://leafjame.github.io/tags/Hexo-NexT/',
-      'img': 'https://s2.ax1x.com/2019/09/22/u9HFxA.gif'
     }
   ]
 # If true, will add site-subtitle to index page, added in jekyll config.

@@ -1,19 +1,21 @@
 <!--定制首页轮播图-->
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
-
 .glyphicon-chevron-left:before{
 	/* content: "《" */
 }
 .glyphicon-chevron-right:before{
 	/* content: "》" */
 }
-
 .right-siders{
    border-radius: 10px;
    /*margin-top: 5px;*/
    margin-bottom: 5px;
 }
-
+.my-carousel{
+  z-index:1;
+}
 .my-carousel:hover{
   margin-left: 5px;
   //padding: 5px 1px;
@@ -21,7 +23,6 @@
   transform: scale(1.1);
   box-shadow: 10px 10px 15px 2px rgba(0,0,0,.12), 0 0 6px 0 rgba(104, 104, 105, 0.1);
 }
-
 @media (max-width: 767px){
    .rights{
       display: none;
@@ -52,15 +53,12 @@
   .carousel-control .icon-next {
    /* margin-right: -10px; */
   }
-
 }
-
 .carousel{
 	width: 65%;
 	height: 100%;
 	position: relative;
 }
-
 .carousel-inner {
   position: relative;
   overflow: hidden;
@@ -195,14 +193,12 @@
   margin-left: -10px;
 }
 */
-
 .carousel-control .icon-prev,
 .carousel-control .glyphicon-chevron-left {
-  background: url('/images/icon-slides.png');
+  background: url('/assets/images/icon-slides.png');
   background-position-y: -20px;
   left: 9px;
 }
-
 /*
 .carousel-control .icon-next,
 .carousel-control .glyphicon-chevron-right {
@@ -210,15 +206,13 @@
   margin-right: -10px;
 }
 */
-
 .carousel-control .icon-next,
 .carousel-control .glyphicon-chevron-right {
-  background: url('/images/icon-slides.png');
+  background: url('/assets/images/icon-slides.png');
   background-position-x: -50px;
   background-position-y: -20px;
   right: 0px;
 }
-
 .carousel-control .icon-prev,
 .carousel-control .icon-next {
   width: 20px;
@@ -226,14 +220,12 @@
   line-height: 1;
   font-family: serif;
 }
-
 .carousel-control .icon-prev:before {
   content: 2039;
 }
 .carousel-control .icon-next:before {
   content: 203a;
 }
-
 .carousel-indicators {
   position: absolute;
   bottom: 2px;
@@ -300,31 +292,38 @@
     padding-bottom: 30px;
   }
   .carousel-indicators {
-    bottom: -10px;
+    bottom: 40px;
   }
+}
+#myCarousel{
+z-index:1;
 }
 </style>
 
-<div width="100%" height="320px" style="border: 0px; overflow: hidden; border-radius: 10px; margin-bottom: 25px;" scrolling="no">
+<div width="100%" height="320px" scrolling="no">
 
 	<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3500" style="float:left">
 
       <!-- 轮播（Carousel）指标 -->
       <ol class="carousel-indicators">
       {% for item in site.carousel.item %}
-        <li data-target="#myCarousel" data-slide-to="{{ item }}"></li>
+        <li data-target="#myCarousel" data-slide-to="{{forloop.index0}}"></li>
       {% endfor %}
       </ol>
 
       <!-- 轮播（Carousel）项目 -->
       <div class="carousel-inner" style="height: 280px; border-radius: 10px; width: 100%;">
-      	{% for item in site.carousel.item[0] %}
-          <a class="item" href="{{ url_for(item.link) }}" target="_blank" style="height: 100%;">
-            {# 添加 class="nofancybox" 解决fancybox和图片链接冲突 #}
-            <img src="{{item.img}}" class="nofancybox"  style="width: 100%; height: 100%" >
-          </a>
-        {% endif %}
-      {% endfor %}
+       {% for item in site.carousel.item %}
+              {% if forloop.index0==0 %}
+                  <a class="item active" href="{{ item.link }}" target="_blank" style="height: 100%;">
+            	      <img src="{{item.img}}" class="nofancybox"  style="width: 100%;" >
+	          </a>
+              {% else %}
+                  <a class="item" href="{{ item.link }}" target="_blank" style="height: 100%;">
+                      <img src="{{item.img}}" class="nofancybox"  style="width: 100%;" >
+	          </a>
+              {% endif %}
+        {% endfor %}
       </div>
 
       <!-- 轮播（Carousel）导航 -->
@@ -334,42 +333,32 @@
       <a class="right carousel-control" data-target="#myCarousel" href="javascript:void(0);" role="button" data-slide="next">
           <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       </a>
-
-	  </div>
-
-		<div  class="rights" style="width: 30%; height: 290px; margin-right: 0px;margin-left: 20px;float: left;">
-  	   <!-- 天气插件 -->
-       <iframe width="300px" scrolling="no" height="50px" frameborder="0" allowtransparency="true" src="//i.tianqi.com/index.php?c=code&id=12&color=%23&bdc=%23&icon=1&py=beijing&num=2&site=12"></iframe>
+   </div>
+   <div  class="rights" style="width: 30%; height: 290px; margin-right: 0px;margin-left: 20px;float: left;">
+       <!-- 天气插件 -->
+       <iframe width="250px" scrolling="no" height="50px" frameborder="0" allowtransparency="true" src="//i.tianqi.com/index.php?c=code&id=12&color=%23&bdc=%23&icon=1&py=beijing&num=2&site=12"></iframe>
 
   	   <!-- r热门排行 -->
   	   <div class="my-carousel">
-         <a href="https://leafjame.github.io/top/" target="_blank">
-            <img class="right-siders nofancybox" src="/images/hot.png" width="100%"/>
+         <a href="{{site.url}}/top" target="_blank">
+            <img class="right-siders nofancybox" src="/assets/images/hot.png" width="100%"/>
          </a>
   	   </div>
 
   	   <!-- 时光留影 -->
   	   <div class="my-carousel">
-         <a href="https://leafjame.github.io/photos/" target="_blank">
-           <img class="right-siders nofancybox" src="/images/time.png"/>
+         <a href="{{site.url}}/album" target="_blank">
+           <img class="right-siders nofancybox" src="/assets/images/time.png"/>
          </a>
   	   </div>
 
       <!-- 推荐阅读 -->
       <div class="my-carousel">
-        <a href="https://leafjame.github.io/books/" target="_blank">
-          <img class="right-siders nofancybox" src="/images/read.png"/>
+        <a href="{{site.url}}/life" target="_blank">
+          <img class="right-siders nofancybox" src="/assets/images/read.png"/>
         </a>
-      </div>
-
-      <!-- 订阅本站 -->
-      <div class="my-carousel">
-         <a href="https://mailchi.mp/e92415d27722/leaf" target="_blank">
-           <img class="right-siders nofancybox" src="/images/subscribe.png"/>
-         </a>
       </div>
 
    </div>
 
 </div>
-
