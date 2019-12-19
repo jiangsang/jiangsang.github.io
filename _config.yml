@@ -111,15 +111,15 @@ carousel:
   enable: true
   item: [
     {
-      'link': 'https://jiangsang.github.io',
+      'link': '',
       'img': 'https://jiangsang.github.io/assets/images/alita.JPG'
     },
     {
-      'link': 'https://mailchi.mp/e92415d27722/leaf',
+      'link': '',
       'img': 'https://s2.ax1x.com/2019/10/24/KNHdCq.jpg'
     },
     {
-      'link': 'https://leafjame.github.io/photos/',
+      'link': '',
       'img': 'https://s2.ax1x.com/2019/10/04/uBEMT0.jpg'
     }
   ]
