@@ -11,6 +11,7 @@ NexT.utils = NexT.$u = {
       .not('.emoji')
       .each(function () {
         var $image = $(this);
+	if ($(this).hasClass('nofancybox')) return;
         var imageTitle = $image.attr('title');
         var $imageWrapLink = $image.parent('a');
 
