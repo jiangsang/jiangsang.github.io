@@ -12,40 +12,14 @@
   {% include _partials/head.html %}
   <title>{{ title }}</title>
   {% include _third-party/analytics/index.html %}
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang | default: page.language | default: site.language }}">
-	<header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"> {% include _partials/header.html %} </div>
-    </header>
 	{% include _partials/album.html %}
+	{% include _scripts/commons.html %}
 	{% include _partials/comments.html %}
-	<footer id="footer" class="footer">
-      <div class="footer-inner">
-        {% include _partials/footer.html %}
-        {% include _third-party/analytics/busuanzi-counter.html %}
-        {{ footer }}
-      </div>
-    </footer>
-    {% unless site.sidebar.b2t %}
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        {% if site.sidebar.scrollpercent %}
-          <span id="scrollpercent"><span>0</span>%</span>
-        {% endif %}
-      </div>
-    {% endunless %}
-    <!-- badApplePlayer -->
-	{% if site.badApplePlayer.enable %}
-	  <!-- Your XlchPlayerKey -->
-	  <script>XlchKey="{{site.badApplePlayer.XlchKey}}";</script>
-	  <!-- font-awesome 4.2.0 -->
-	  <link href="https://lib.baomitu.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	  <!-- JQuery-mousewheel 3.1.9 -->
-	  <script src="https://lib.baomitu.com/jquery-mousewheel/3.1.9/jquery.mousewheel.min.js"></script>
-	  <!-- Scrollbar -->
-	  <script src="https://static.https.badapple.top/BadApplePlayer/js/scrollbar.js"></script>
-	  <!-- BadApplePlayer -->
-	  <script src="https://static.https.badapple.top/BadApplePlayer/Player.js"></script>
-	{% endif %}
+	{% include _scripts/boostrap.html %}
+  	{% include _third-party/comments/index.html %}
  </body>
 </html>
