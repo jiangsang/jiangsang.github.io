@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Jekyll·利用腾讯云COS为博客添加相册模块
+description: ![](https://me.idealli.com/images/blog/18122304.jpg)
 categories:
  - Jekyll
 tags:
@@ -8,9 +9,7 @@ tags:
 
 ---
 
-### ![](https://me.idealli.com/images/blog/18122304.jpg)
-
-<!-- more -->
+### 前言
 
 个人博客小站刚建站不久，想着除了主题里的功能外再添加上相册模块，于是半搜索半摸索把相册模块搞出来了，最后采用了利用腾讯云对象存储作图床的方案，在国内速度也快，不用上传图片还来修改代码，只负责上传图片就好。参考了以下博文[给hexo静态博客添加动态相册功能](<https://me.idealli.com/post/73ad4183.html>)（用了他的图🐶）实现本模块需要两方面的设置：一是腾讯云对象存储；二是代码层添加相关页面；
 
