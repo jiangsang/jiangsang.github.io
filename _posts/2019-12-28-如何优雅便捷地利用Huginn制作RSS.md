@@ -12,7 +12,7 @@ tags:
 
 ###  前言
 
-本篇博文接[利用Feed43为网站自制RSS源](https://jiangsang.github.io/%E5%A5%BD%E7%8E%A9%E7%9A%84/2019/12/25/%E8%87%AA%E5%88%B6RSS%E6%BA%90%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7-%E4%B8%80/)一文，上一篇讲解了RSS的简介以及利用Feed43自制专属RSS，Feed43有其优势，缺陷也很明显，不能高度自定义、有的网站无法使用。那么此时，一个更为牛X的工具出场了，它就是Huginn。本篇就带你一探Huginn，并从安装到制作全程详细讲解制作专属RSS。
+本篇博文接[利用Feed43为网站自制RSS源](https://jiangsang.github.io/%E5%A5%BD%E7%8E%A9%E7%9A%84/2019/12/25/%E5%88%A9%E7%94%A8Feed43%E4%B8%BA%E7%BD%91%E7%AB%99%E8%87%AA%E5%88%B6RSS%E6%BA%90/)一文，上一篇讲解了RSS的简介以及利用Feed43自制专属RSS，Feed43有其优势，缺陷也很明显，不能高度自定义、有的网站无法使用。那么此时，一个更为牛X的工具出场了，它就是Huginn。本篇就带你一探Huginn，并从安装到制作全程详细讲解制作专属RSS。
 
 <!-- more -->
 
