@@ -496,8 +496,7 @@ gitalk:
 #add_this_id:
 
 # Share
-duoshuo_share: false
-
+duoshuo_share: true
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
 #google_site_verification:
@@ -588,14 +587,14 @@ busuanzi_count:
 
 
 # Tencent analytics ID
-# tencent_analytics:
+ tencent_analytics: 66505451
 
 # Tencent MTA ID
 # tencent_mta:
 
 
 # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO
-baidu_push: false
+baidu_push: true
 
 # Google Calendar
 # Share your recent schedule to others via calendar page
