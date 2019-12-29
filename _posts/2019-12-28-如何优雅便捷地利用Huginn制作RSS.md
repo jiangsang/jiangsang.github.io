@@ -12,7 +12,7 @@ tags:
 
 ###  前言
 
-本篇博文接上[自制RSS源使用技巧（一）](https://jiangsang.github.io/%E5%A5%BD%E7%8E%A9%E7%9A%84/2019/12/25/%E8%87%AA%E5%88%B6RSS%E6%BA%90%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7-%E4%B8%80/)，上一篇讲解了RSS的简介以及利用Feed43自制专属RSS，Feed43有其优势，缺陷也很明显，不能高度自定义、有的网站无法使用。那么此时，一个更为牛X的工具出场了，它就是Huginn。本篇就带你一探Huginn，并从安装到制作全程详细讲解制作专属RSS。
+本篇博文接[利用Feed43为网站自制RSS源](https://jiangsang.github.io/%E5%A5%BD%E7%8E%A9%E7%9A%84/2019/12/25/%E8%87%AA%E5%88%B6RSS%E6%BA%90%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7-%E4%B8%80/)一文，上一篇讲解了RSS的简介以及利用Feed43自制专属RSS，Feed43有其优势，缺陷也很明显，不能高度自定义、有的网站无法使用。那么此时，一个更为牛X的工具出场了，它就是Huginn。本篇就带你一探Huginn，并从安装到制作全程详细讲解制作专属RSS。
 
 <!-- more -->
 
@@ -102,7 +102,7 @@ tags:
 
 10. 最后在浏览器中输入http://你的服务器IP:3000并访问，出现如下页面即安装成功！
 
-    ![](https://images.cnblogs.com/cnblogs_com/liujiangblog/1622695/o_191229043104Huginn.PNG)
+    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn.PNG)
 
     点击Login登录，初始账号：admin，密码：password，登录进去可自行修改。
 
@@ -114,7 +114,7 @@ tags:
 
     
 
-    ![](https://images.cnblogs.com/cnblogs_com/liujiangblog/1622695/o_191229064436Huginn1.PNG)
+    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn1.PNG)
 
     
 
@@ -122,15 +122,15 @@ tags:
 
     初始化已经有一些Agents，你可以从里中学习到一些使用方法。点击<kbd>+ New Agent</kbd>添加第一个Agent，Type选择Website Agent。
 
-    ![](https://images.cnblogs.com/cnblogs_com/liujiangblog/1622695/o_191229064953Huginn2.PNG?a=1577602206826)
+    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn2.PNG)
 
     
 
-    ![](https://images.cnblogs.com/cnblogs_com/liujiangblog/1622695/o_191229065354Huginn3.PNG)
+    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn3.PNG)
 
     Name框输入名称，Schedule下拉框选择执行的间隔时间，其他默认即可
 
-    ![](https://images.cnblogs.com/cnblogs_com/liujiangblog/1622695/o_191229081932Huginn4.PNG)
+    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn4.PNG)
 
     Options参数最为关键，右侧都有英文说明的，字段简要说明如下：
 
@@ -148,13 +148,13 @@ tags:
 
     
 
-    ![](https://images.cnblogs.com/cnblogs_com/liujiangblog/1622695/o_191229083128Huginn5.PNG)
+    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn5.PNG)
 
     填写完毕后点击<kbd>Dry Run</kbd>，如上图显示抓取到了数据表明有效，然后点击save保存，否则请修改extract下的参数再试。
 
     保存后run一下，然后就会有生产出很多events，就是获取到的数据。如果没有获取到可能是数据库的问题。
 
-    ![](https://images.cnblogs.com/cnblogs_com/liujiangblog/1622695/o_191229093457events.PNG)
+    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/events.PNG)
 
     
 
@@ -164,17 +164,17 @@ tags:
 
     同样的，Type选择Website Agent，Sources选中第一个Agent，下面的框一定勾选上
 
-    ![](https://images.cnblogs.com/cnblogs_com/liujiangblog/1622695/o_191229093440Huginn6.PNG)
+    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn6.PNG)
 
     {{url}}即第一个Agent传过来的超链接参数，这里mode一定填写merge，这样两个Agent的字段就组合到一起了，同样的选择一个接受到的event测试一下
 
-    ![](https://images.cnblogs.com/cnblogs_com/liujiangblog/1622695/o_191229093451Huginn7.PNG)
+    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn7.PNG)
 
-    ![](https://images.cnblogs.com/cnblogs_com/liujiangblog/1622695/o_191229094639Huginn8.PNG)
+    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn8.PNG)
 
     把第一个的events都删除然后重新run一下可以发现第二个Agent也自动执行了,第二步完毕。
 
-    ![](https://images.cnblogs.com/cnblogs_com/liujiangblog/1622695/o_191229094645Huginn9.PNG)
+    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn9.PNG)
 
     
 
@@ -182,13 +182,13 @@ tags:
 
     ---
 
-    ![](https://images.cnblogs.com/cnblogs_com/liujiangblog/1622695/o_191229095644Huginn10.PNG)
+    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn10.PNG)
 
-    ![](https://images.cnblogs.com/cnblogs_com/liujiangblog/1622695/o_191229095650Huginn11.PNG)
+    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn11.PNG)
 
     Type选择Data output Agent,Sources选择第二个Agent，secrets填写RSS地址自定义的末尾名称，item下就是RSS中的每一条信息了，填写上对应参数，其他默认即可。最后点击保存
 
 至此，一个专属RSS源就已生成，点击第三个Agent就能看到下图所示，把它添加到RSS阅读器上去吧。
 
-![](https://images.cnblogs.com/cnblogs_com/liujiangblog/1622695/O_191229095657Huginn12.PNG)
+![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn12.PNG)
 
