@@ -116,10 +116,10 @@ carousel:
     },
     {
       'link': '',
-      'img': 'https://article-1300776923.cos.ap-chengdu.myqcloud.com/刺客伍六七.PNG'
+      'img': 'https://article-1300776923.cos.ap-chengdu.myqcloud.com/2020.JPG'
     },
     {
-      'link': '',
+      'link': 'https://jiangsang.github.io/album/',
       'img': 'https://s2.ax1x.com/2019/10/04/uBEMT0.jpg'
     }
   ]
@@ -322,7 +322,7 @@ sidebar:
 scroll_to_more: true
 
 # Automatically saving scroll position on each post/page in cookies.
-save_scroll: false
+save_scroll: true
 
 # Automatically excerpt description in homepage as preamble text.
 excerpt_description: true
@@ -330,8 +330,8 @@ excerpt_description: true
 # Automatically Excerpt. Not recommend.
 # Please use <!-- more --> in the post to control excerpt accurately.
 auto_excerpt:
-  enable: false
-  length: 150
+  enable: true
+  length: 100
 
 # Post meta display settings
 post_meta:
@@ -355,7 +355,7 @@ post_wordcount:
 
 # Declare license on posts
 post_copyright:
-  enable: false
+  enable: true
   license: CC BY-NC-SA 3.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
 
