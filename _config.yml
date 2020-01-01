@@ -14,7 +14,7 @@ date_format: '%Y-%m-%d'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com' and baseurl as '/child'
-url: https://jiangsang.github.io
+url: https://jianger.netlify.com
 baseurl:
 permalink: pretty
 
@@ -79,7 +79,7 @@ plugins:
 favicon: /assets/favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "jianger's Blog,jianger"
+keywords: "jianger's Blog,jianger,刘江的博客,docker,huginn,jekyll,数据结构"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -87,7 +87,7 @@ keywords: "jianger's Blog,jianger"
 rss:
 
 # Specify the date when the site was setup
-#since: 2019
+since: 2019
 
 # icon between year and author @Footer
 authoricon: heart
@@ -112,14 +112,14 @@ carousel:
   item: [
     {
       'link': '',
-      'img': 'https://jiangsang.github.io/assets/images/alita.JPG'
+      'img': 'https://jianger.netlify.com/assets/images/alita.JPG'
     },
     {
       'link': '',
       'img': 'https://article-1300776923.cos.ap-chengdu.myqcloud.com/2020.JPG'
     },
     {
-      'link': 'https://jiangsang.github.io/album/',
+      'link': 'https://jianger.netlify.com/album/',
       'img': 'https://s2.ax1x.com/2019/10/04/uBEMT0.jpg'
     }
   ]
