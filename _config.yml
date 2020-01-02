@@ -503,7 +503,8 @@ duoshuo_share: false
 google_site_verification: vEvsQ2rCbGLk28tRbe3oSMBomX-2SHduqyIj60KJ8Lk
 
 # Google Analytics
-#google_analytics:
+google_analytics: UA-155260234-1
+
 
 # Yandex Webmaster tools verification setting
 # See: https://webmaster.yandex.ru/
