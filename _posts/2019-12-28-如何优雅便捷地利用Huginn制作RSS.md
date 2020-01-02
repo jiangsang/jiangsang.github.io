@@ -24,6 +24,8 @@ tags:
 >
 > 我的使用环境：腾讯云主机centos7.5
 
+
+
 ### Huginn为何物
 
 [Huginn](https://github.com/huginn/huginn) 是一个创建代理的系统，它为你在线执行自动化的任务。它主要的用途就是发送HTTP请求获得相关数据，然后你可以选择进行如下处理：
@@ -34,7 +36,11 @@ tags:
 
 不难发现，通过以上三方面的组合操作，Huginn可玩性颇高，它不仅仅可以用来制作RSS源，是一款自动化的效率利器，你可以把它看作是自己服务器上的 IFTTT 或 Zapier （注：两款皆是自动化工具）的破解版本。解锁更多姿势，请参阅[官方文档](https://github.com/huginn/huginn) 。
 
+
+
 ### Huginn的安装
+
+------
 
 官方提供了很多种安装方式，我采用了Docker的安装方式，Docker是一个轻量的实现虚拟化的利器，不用一个一个安装需要的应用，个人用足以，使用方法不详述了，贴一个学习地址[Docker教程](http://www.baidu.com/link?url=sGzkYAT0i-FJpZobSUTkUzYlXWlmLEg82ZchlUAiznx1JcFsoELMKKrlXRsuiXyGIoMuOgpKazt7sEtfky1ZL_&wd=&eqid=eed6dca6000ef600000000065e0759d5)，本文也用不上太多，会用就好。下面开始安装，说明一下我的云服务器为腾讯云Centos 7.5，以下操作均基于此系统。
 
@@ -108,87 +114,95 @@ tags:
 
     点击Login登录，初始账号：admin，密码：password，登录进去可自行修改。
 
-    ---
 
-    ### 开始定制专属RSS
 
-    > 以下以制作电影天堂的[最新电影](https://www.dytt8.net/html/gndy/dyzz/index.html)信息RSS为例
 
-    
 
-    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn1.PNG)
+### 开始定制专属RSS
 
-    
+------
 
-    #### 新建第一个Agent，获得标题和对应链接
+> 以下以制作电影天堂的[最新电影](https://www.dytt8.net/html/gndy/dyzz/index.html)信息RSS为例
 
-    初始化已经有一些Agents，你可以从里中学习到一些使用方法。点击<kbd>+ New Agent</kbd>添加第一个Agent，Type选择Website Agent。
+![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn1.PNG)
 
-    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn2.PNG)
 
-    
 
-    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn3.PNG)
+#### 新建第一个Agent，获得标题和对应链接
 
-    Name框输入名称，Schedule下拉框选择执行的间隔时间，其他默认即可
+------
 
-    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn4.PNG)
+初始化已经有一些Agents，你可以从里中学习到一些使用方法。点击<kbd>+ New Agent</kbd>添加第一个Agent，Type选择Website Agent。
 
-    Options参数最为关键，右侧都有英文说明的，字段简要说明如下：
+![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn2.PNG)
 
-    > url:网址链接
-    >
-    > type:返回的数据类型，支持xml,、html、json、text，此处填写html
-    >
-    > mode:抓取模式，可选`all`, `on_change`,  `merge`，这里填写on_change，表示页面有变化才会抓取
-    >
-    > extra:表示抓取规则，
-    >
-    > - url和title表示抓取字段的名称，可随意命名；（后面用得着，作为参数传给其他Agent）
-    > - css表示抓取内容的css路径，value表示抓取的值，@href表示抓取对应css标签的href属性值，还有@src,@title等等；
-    > - 如果要抓取对应标签的值，可填`.`(包括html代码的全部内容）,`string(.)`（只包含对应标签的值），text()等同string(.)
 
-    
 
-    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn5.PNG)
+![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn3.PNG)
 
-    填写完毕后点击<kbd>Dry Run</kbd>，如上图显示抓取到了数据表明有效，然后点击save保存，否则请修改extract下的参数再试。
+Name框输入名称，Schedule下拉框选择执行的间隔时间，其他默认即可
 
-    保存后run一下，然后就会有生产出很多events，就是获取到的数据。如果没有获取到可能是数据库的问题。
+![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn4.PNG)
 
-    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/events.PNG)
+Options参数最为关键，右侧都有英文说明的，字段简要说明如下：
 
-    
+> url:网址链接
+>
+> type:返回的数据类型，支持xml,、html、json、text，此处填写html
+>
+> mode:抓取模式，可选`all`, `on_change`,  `merge`，这里填写on_change，表示页面有变化才会抓取
+>
+> extra:表示抓取规则，
+>
+> - url和title表示抓取字段的名称，可随意命名；（后面用得着，作为参数传给其他Agent）
+> - css表示抓取内容的**css路径**，value表示抓取的值，@href表示抓取对应css标签的href属性值，还有@src,@title等等；
+> - 如果要抓取对应标签的值，可填`.`(包括html代码的全部内容）,`string(.)`（只包含对应标签的值），text()等同string(.)
 
-    #### 新建第二个Agent，获取全文输出
 
-    ---
 
-    同样的，Type选择Website Agent，Sources选中第一个Agent，下面的框一定勾选上
+![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn5.PNG)
 
-    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn6.PNG)
+填写完毕后点击<kbd>Dry Run</kbd>，如上图显示抓取到了数据表明有效，然后点击save保存，否则请修改extract下的参数再试。
 
-    {{url}}即第一个Agent传过来的超链接参数，这里mode一定填写merge，这样两个Agent的字段就组合到一起了，同样的选择一个接受到的event测试一下
+保存后run一下，然后就会有生产出很多events，就是获取到的数据。如果没有获取到可能是数据库的问题。
 
-    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn7.PNG)
+![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/events.PNG)
 
-    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn8.PNG)
 
-    把第一个的events都删除然后重新run一下可以发现第二个Agent也自动执行了,第二步完毕。
 
-    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn9.PNG)
 
-    
 
-    #### 新建第三个Agent，输出成RSS
+#### 新建第二个Agent，获取全文输出
 
-    ---
+---
 
-    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn10.PNG)
+同样的，Type选择Website Agent，Sources选中第一个Agent，下面的框一定勾选上
 
-    ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn11.PNG)
+![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn6.PNG)
 
-    Type选择Data output Agent,Sources选择第二个Agent，secrets填写RSS地址自定义的末尾名称，item下就是RSS中的每一条信息了，填写上对应参数，其他默认即可。最后点击保存
+{{url}}即第一个Agent传过来的超链接参数，这里mode一定填写merge，这样两个Agent的字段就组合到一起了，同样的选择一个接受到的event测试一下
+
+![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn7.PNG)
+
+![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn8.PNG)
+
+把第一个的events都删除然后重新run一下可以发现第二个Agent也自动执行了,第二步完毕。
+
+![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn9.PNG)
+
+
+
+
+
+#### 新建第三个Agent，输出成RSS
+
+---
+
+![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn10.PNG)
+
+![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn11.PNG)
+
+Type选择Data output Agent,Sources选择第二个Agent，secrets填写RSS地址自定义的末尾名称，item下就是RSS中的每一条信息了，填写上对应参数，其他默认即可。最后点击保存
 
 至此，一个专属RSS源就已生成，点击第三个Agent就能看到下图所示，把它添加到RSS阅读器上去吧。
 
