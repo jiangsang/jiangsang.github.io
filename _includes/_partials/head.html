@@ -1,7 +1,6 @@
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="baidu-site-verification" content="D4jNnohXCB" />
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
 {% if site.pace %}
@@ -40,7 +39,9 @@
 {% if site.yandex_site_verification %}
   <meta name="yandex-verification" content="{{ site.yandex_site_verification }}" />
 {% endif %}
-
+{% if site.360_site_verification %}
+  <meta name="360-site-verification" content="{{ site.360_site_verification }}" />
+{% endif %}
 
 {% if site.baidu_site_verification %}
   <meta name="baidu-site-verification" content="{{ site.baidu_site_verification }}" />

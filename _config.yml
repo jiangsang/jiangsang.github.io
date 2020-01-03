@@ -510,6 +510,11 @@ google_analytics: UA-155260234-1
 # See: https://webmaster.yandex.ru/
 #yandex_site_verification:
 
+#360站长网站验证
+360_site_verification: b91b95c1e7465c482db09ea300a1856c
+#百度站长网站验证
+baidu_site_verification: D4jNnohXCB
+
 # CNZZ count
 #cnzz_siteid:
 
