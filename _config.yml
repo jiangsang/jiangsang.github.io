@@ -14,7 +14,7 @@ date_format: '%Y-%m-%d'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com' and baseurl as '/child'
-url: https://jianger.netlify.com
+url: https://jianger.space
 baseurl:
 permalink: pretty
 
@@ -594,7 +594,7 @@ busuanzi_count:
 
 
 # Tencent analytics ID
-tencent_analytics: 66506261
+tencent_analytics: 66507928
 
 # Tencent MTA ID
 # tencent_mta:
