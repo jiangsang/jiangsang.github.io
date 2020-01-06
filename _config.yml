@@ -33,7 +33,7 @@ paginate: 6
 
 # Handling Reading
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "Gemfile", "Gemfile.lock", "README_en.md", "vendor"]
-include: ["_redirects.txt"]
+include: [".txt"]
 # Separator
 excerpt_separator: <!-- more -->
 
