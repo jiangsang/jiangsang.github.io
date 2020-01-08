@@ -137,7 +137,7 @@ menu:
   about: /about/
   archives: /archives/
   tags: /tags/
-  life: /life/
+  links: /links/
   album: /album/
   #sitemap: /sitemap.xml
   #commonweal: /404.html
@@ -156,7 +156,7 @@ menu_icons:
   categories: th
   schedule: calendar
   tags: tags
-  life: apple
+  links: link
   album: camera-retro
   archives: archive
   sitemap: sitemap
