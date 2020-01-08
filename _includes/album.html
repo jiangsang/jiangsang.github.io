@@ -6,6 +6,7 @@
 {% endif %}
 <html class="{{ html_class | downcase }}" lang="{{ site.language }}">
 <head>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 {% include _partials/head.html %}
 {% include _partials/head/custom-head.html %}
 
