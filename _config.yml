@@ -33,7 +33,6 @@ paginate: 6
 
 # Handling Reading
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "Gemfile", "Gemfile.lock", "README_en.md", "vendor"]
-include: ["redirects.text"]
 # Separator
 excerpt_separator: <!-- more -->
 
@@ -111,15 +110,15 @@ carousel:
   enable: true
   item: [
     {
-      'link': '',
-      'img': 'https://jianger.netlify.com/assets/images/alita.JPG'
+      'link': '#',
+      'img': 'https://jianger.space/assets/images/alita.JPG'
     },
     {
-      'link': '',
+      'link': '#',
       'img': 'https://article-1300776923.cos.ap-chengdu.myqcloud.com/2020.JPG'
     },
     {
-      'link': 'https://jianger.netlify.com/album/',
+      'link': 'https://jianger.space/album/',
       'img': 'https://s2.ax1x.com/2019/10/04/uBEMT0.jpg'
     }
   ]
