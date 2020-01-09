@@ -256,7 +256,7 @@ social_icons:
 
 #侧边栏头像
 # in directory: /assets/images/avatar.gif
-#avatar:
+avatar: /assets/images/avatar.jpeg
 
 
 # Table Of Contents in the Sidebar

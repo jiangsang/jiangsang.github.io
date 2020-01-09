@@ -1,10 +1,8 @@
 ---
 layout: page
 type: links
+title: 友情链接
 ---
-
-> 一起交流，一起进步！快来做我邻居吧！
-
 
 
 ### 添加链接
@@ -15,9 +13,9 @@ type: links
 >
 > 链接：https://jianger.space
 >
-> 头像：https://jianger.space/assets/imags/avatar.gif
+> 头像：https://jianger.space/assets/images/avatar.jpeg
 
-想要交换友链，根据上面的信息，把本站添加到你的网站中，然后在下方评论中贴出你的信息~
+想要交换友链，根据上面的信息，把本站添加到你的网站中，然后在下方评论中贴出你的网站信息~
 
 ( •̆ ᵕ •̆ )◞ ❤
 
@@ -36,7 +34,7 @@ type: links
         app_id: 'e1OuTd58aBj3h9ptV4oIaNBY-9Nh9j0Va',
         app_key: 'CqYVue1Ivtz4TJnBVjUvY9NY',
         path: '',
-        placeholder: '快来做我的邻居！',
+        placeholder: '快来做我的邻居吧！',
         notify: 'true',
         verify: 'true',
     })
