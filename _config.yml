@@ -352,9 +352,9 @@ post_wordcount:
   #qcode: WeChat.jpg
   #description: 扫一扫，添加好友，欢迎骚扰！
 
-# 文章赞赏
-alipay: true
-site.wechatpay: true
+# 文章赞赏二维码地址
+alipay: /assets/images/alipay.jpg
+wechatpay: /assets/images/wechat.jpg
 
 #赞赏模块文字
 reward_comment: 觉得文章不错，赞赏站长一包辣条( •̆ ᵕ •̆ )◞ ❤
