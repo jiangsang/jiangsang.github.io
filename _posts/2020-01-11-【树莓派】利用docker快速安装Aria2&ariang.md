@@ -20,7 +20,9 @@ tags:
 
 ---
 
-树莓派的架构是Arm，与一般的Windows笔记本电脑不同，x86的容器是无法使用的。而树莓派3B之后的板子实际上是64为arm64v8的，但官方的Raspbian系统为了兼容性问题依旧是32位，故编译环境依旧是32位。以下网址是一些arm32v7可用的容器
+树莓派的架构是Arm，与一般的Windows笔记本电脑不同，x86的容器是无法使用的。而树莓派3B之后的板子实际上是64为arm64v8的，但官方的Raspbian系统为了兼容性问题依旧是32位，故编译环境依旧是32位。以下网址是一些arm32v7可用的容器。
+
+<!-- more -->
 
 ```
 https://hub.docker.com/u/arm32v7
@@ -44,6 +46,8 @@ sudo curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 
 
 
+
+
 ### 更换容器镜像源
 
 我使用官方镜像源会连接不上，因此换成阿里云提供的镜像加速服务，免费的。可以通过修改daemon配置文件/etc/docker/daemon.json来使用加速器
@@ -58,6 +62,8 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
+
+
 
 
 
