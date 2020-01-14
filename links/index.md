@@ -6,31 +6,32 @@ title: 友情链接
 
 <style>
 	.friends{
-		display: flex;
+		display: flow-root;
+		width:100%;
 	}
-    .frieds .links-container{
+    .friends .links-container{
     transition:transform 0.5s;
     width:20%;
 	list-style-type: none;
     float: left;
     margin: 15px;
 }
-    .frieds .links-container .links-title{
+    .friends .links-container .links-title{
         background-color:#74c3fb;
         text-align:center;
         margin:0;
         padding:0;
     }
-    .frieds .links-container .links-title h4{
+    .friends .links-container .links-title h4{
     	color:white;
     }
-	.frieds .links-container:hover{
+	.friends .links-container:hover{
 		box-shadow:0 2px 3px #bababa;
 		transform:scale(1.1);
 } 
 </style>
 
-<ul class="frieds">
+<ul class="friends">
     <li class="links-container">
 		    <a href="https://iiycy.com" target="_blank" class="links-link">
 			  <div class="links-item">
