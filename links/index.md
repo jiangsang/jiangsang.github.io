@@ -8,13 +8,15 @@ title: 友情链接
 	.friends{
 		display: flow-root;
 		width:100%;
+		padding: 0;
+		margin-left: 20px
 	}
     .friends .links-container{
     transition:transform 0.5s;
-    width:20%;
+    width:25%;
 	list-style-type: none;
     float: left;
-    margin: 15px;
+    margin: 2%;
 }
     .friends .links-container .links-title{
         background-color:#74c3fb;
@@ -24,9 +26,10 @@ title: 友情链接
     }
     .friends .links-container .links-title h4{
     	color:white;
+    	margin: 10px 0 0;
     }
 	.friends .links-container:hover{
-		box-shadow:0 2px 3px #bababa;
+		box-shadow:0 10px 10px #bababa;
 		transform:scale(1.1);
 } 
 </style>
