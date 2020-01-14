@@ -12,8 +12,10 @@ title: 友情链接
     transition:transform 0.5s;
 }
     .row .links-container .links-title{
-        background-color:black;
+        background-color:#74c3fb;
         text-align:center;
+        margin:0;
+        padding:0;
     }
 	.row .links-container:hover{
 		shadow:0 2px 3px #bababa;transform:scale(1.1)
@@ -21,7 +23,7 @@ title: 友情链接
 </style
 
 <div class="row">
-    <div class="col-lg-4 col-md-4 col-xs-4 links-container">
+    <div class="col-lg-3 col-md-3 col-xs-4 links-container">
 		    <a href="https://iiycy.com" target="_blank" class="links-link">
 			  <div class="links-item">
 			    <div class="links-img" style="background:url('https://imyee.cn/a.jpg');width: 100%;padding-top: 100%;background-repeat: no-repeat;background-size: cover;"></div>
@@ -31,11 +33,22 @@ title: 友情链接
 		      </div>
 			  </a>
 		</div>
+        <div class="col-lg-4 col-md-4 col-xs-4 links-container">
+		    <a href="https://blog.luhe.xyz" target="_blank" class="links-link">
+			  <div class="links-item">
+			    <div class="links-img" style="background:url('https://blog.luhe.xyz/mylogo.png');width: 100%;padding-top: 100%;background-repeat: no-repeat;background-size: cover;"></div>
+				<div class="links-title">
+				  <h4>原谅糖</h4>
+				</div>
+		      </div>
+			  </a>
+		</div>
 </div>
 
 
-
 ---
+
+<br>
 
 ### 添加链接
 
