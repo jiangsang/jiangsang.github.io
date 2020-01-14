@@ -4,26 +4,24 @@ type: links
 title: 友情链接
 ---
 
-<!-- 新 Bootstrap 核心 CSS 文件 -->
-<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
 <style>
-    .row .links-container{
+    .frieds .links-container{
     transition:transform 0.5s;
+    width:25%;
 }
-    .row .links-container .links-title{
+    .frieds .links-container .links-title{
         background-color:#74c3fb;
         text-align:center;
         margin:0;
         padding:0;
     }
-	.row .links-container:hover{
+	.frieds .links-container:hover{
 		shadow:0 2px 3px #bababa;transform:scale(1.1)
-}
-</style
+} 
+</style>
 
-<div class="row">
-    <div class="col-lg-3 col-md-3 col-xs-4 links-container">
+<div class="frieds">
+    <div class="links-container">
 		    <a href="https://iiycy.com" target="_blank" class="links-link">
 			  <div class="links-item">
 			    <div class="links-img" style="background:url('https://imyee.cn/a.jpg');width: 100%;padding-top: 100%;background-repeat: no-repeat;background-size: cover;"></div>
@@ -33,7 +31,7 @@ title: 友情链接
 		      </div>
 			  </a>
 		</div>
-        <div class="col-lg-4 col-md-4 col-xs-4 links-container">
+        <div class="links-container">
 		    <a href="https://blog.luhe.xyz" target="_blank" class="links-link">
 			  <div class="links-item">
 			    <div class="links-img" style="background:url('https://blog.luhe.xyz/mylogo.png');width: 100%;padding-top: 100%;background-repeat: no-repeat;background-size: cover;"></div>
@@ -48,7 +46,7 @@ title: 友情链接
 
 ---
 
-<br>
+
 
 ### 添加链接
 
