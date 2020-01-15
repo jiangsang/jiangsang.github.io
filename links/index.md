@@ -65,6 +65,16 @@ title: 友情链接
 		      </div>
 			  </a>
 		</li>
+		<li class="links-container">
+		    <a href="https://sunhwee.com" target="_blank" class="links-link">
+			  <div class="links-item">
+			    <div class="links-img" style="background:url('https://sunhwee.com/hwsun.jpg');width: 100%;padding-top: 100%;background-repeat: no-repeat;background-size: cover;"></div>
+				<div class="links-title">
+				  <h4>洪卫の博客</h4>
+				</div>
+		      </div>
+			  </a>
+		</li>
 </ul>
 
 
