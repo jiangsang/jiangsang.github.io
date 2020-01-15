@@ -55,6 +55,16 @@ title: 友情链接
 		      </div>
 			  </a>
 		</li>
+		<li class="links-container">
+		    <a href="https://bestzuo.cn" target="_blank" class="links-link">
+			  <div class="links-item">
+			    <div class="links-img" style="background:url('https://site-1258928558.cos.ap-guangzhou.myqcloud.com/touxiang.jpg');width: 100%;padding-top: 100%;background-repeat: no-repeat;background-size: cover;"></div>
+				<div class="links-title">
+				  <h4>Sanarous</h4>
+				</div>
+		      </div>
+			  </a>
+		</li>
 </ul>
 
 
