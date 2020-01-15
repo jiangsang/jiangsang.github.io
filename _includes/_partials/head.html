@@ -27,8 +27,7 @@
 
 
 {% comment %} #238, Disable Baidu tranformation {% endcomment %}
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="max-age=864000" />
 
 
 {% if site.google_site_verification %}
@@ -47,10 +46,6 @@
   <meta name="baidu-site-verification" content="{{ site.baidu_site_verification }}" />
 {% endif %}
 
-
-{% if site.qihu_site_verification %}
-  <meta name="360-site-verification" content="{{ site.qihu_site_verification }}" />
-{% endif %}
 
 
 {% if site.fancybox %}
