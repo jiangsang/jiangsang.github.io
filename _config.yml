@@ -276,7 +276,7 @@ toc:
 creative_commons: by-nc-sa
 #creative_commons:
 badApplePlayer:
-  enable: true
+  enable: false
   XlchKey: L123 # 播放器Key  
 
 sidebar:
