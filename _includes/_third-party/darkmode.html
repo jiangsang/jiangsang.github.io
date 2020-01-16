@@ -27,14 +27,14 @@
 		  allsuspects[i].parentNode.removeChild(allsuspects[i]);
 		}
 	}	
-	function changemode(){
-		var dark=getCookie('dark');
-		if dark==1:
+	changemode=function(){
+		var status=getCookie('status');
+		if status=='dark':
 			removedarkcss();
-			setCookie('dark', 0);
+			setCookie('status', 'light');
 		else
 			adddarkcss();
-			setCookie('dark', 1);
+			setCookie('status', 'dark');
 				
 	}
 		
