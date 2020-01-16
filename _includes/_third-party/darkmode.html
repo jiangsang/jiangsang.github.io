@@ -28,13 +28,13 @@
 		}
 	}	
 	changemode=function(){
-		var status=getCookie('status');
-		if status=='dark':
+		var status=getCookie("status");
+		if status=="dark":
 			removedarkcss();
-			setCookie('status', 'light');
+			setCookie("status", "light");
 		else
 			adddarkcss();
-			setCookie('status', 'dark');
+			setCookie("status", "dark");
 				
 	}
 		
