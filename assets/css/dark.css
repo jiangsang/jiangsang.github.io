@@ -15,3 +15,13 @@
 .darkmode-toggle--white {
 	background: #fff;
 }
+.box,.navbar-default{
+	background:#1f1f1f !important;
+}
+body{
+	background:#1f1f1f;
+	color:#eee;
+}
+.collapse ul li a,.navbar-default .navbar-brand{
+	color:#ff6347 !important;
+}
