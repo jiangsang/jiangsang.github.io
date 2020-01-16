@@ -27,10 +27,13 @@
 		  allsuspects[i].parentNode.removeChild(allsuspects[i]);
 		}
 	}
-	if (status=="dark"){
-		adddarkcss();
-		setCookie("status", "light");
+	//页面一加载就判断是否是暗色模式
+	bedark=function(){
+		if (status=="dark"){
+			adddarkcss();
+		}
 	}
+
 	changemode=function(){
 		var status=getCookie("status");
 		if (status=="dark"){

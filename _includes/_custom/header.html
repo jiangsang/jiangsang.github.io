@@ -32,6 +32,9 @@
       width: 100% !important;
       height: 100% !important;
    }
+   .carousel-inner{
+   		height:220px;
+   }
    .carousel-inner > .item > a > img {
   	height : 90%;
 	}
@@ -60,6 +63,8 @@
 }
 .carousel-inner {
   position: relative;
+  height:300px;
+  border-radius: 15px;
   overflow: hidden;
   width: 100%;
 }
@@ -312,7 +317,7 @@ z-index:1;
       </ol>
 
       <!-- 轮播（Carousel）项目 -->
-      <div class="carousel-inner" style="height: 280px; border-radius: 10px; width: 100%;">
+      <div class="carousel-inner">
        {% for item in site.carousel.item %}
               {% if forloop.index0==0 %}
                   <a class="item active" href="{{ item.link }}" target="_blank" style="height: 100%;">

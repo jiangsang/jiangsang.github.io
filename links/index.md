@@ -17,7 +17,7 @@ title: 友情链接
 	list-style-type: none;
     float: left;
     margin: 2%;
-}
+	}
     .friends .links-container .links-title{
         background-color:#74c3fb;
         text-align:center;
@@ -31,6 +31,11 @@ title: 友情链接
 	.friends .links-container:hover{
 		box-shadow:0 10px 10px #bababa;
 		transform:scale(1.1);
+}
+@media (min-width: 992px){
+	.friends .links-container{
+		width:20% !important;
+	}
 } 
 </style>
 

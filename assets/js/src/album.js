@@ -1,4 +1,5 @@
-function loadXMLDoc(xmlUrl) 
+
+		function loadXMLDoc(xmlUrl) 
 		{
 			try //Internet Explorer
 			{
@@ -35,7 +36,16 @@ function loadXMLDoc(xmlUrl)
 			}
 			return xmlDoc; 
 		}
-
+		// if (window.XMLHttpRequest)
+		// {// code for IE7+, Firefox, Chrome, Opera, Safari
+		//     xmlhttp=new XMLHttpRequest();
+		// }
+		// else
+		// {// code for IE6, IE5
+		//     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		// }
+		// xmlhttp.open("GET","https://images-1256429518.cos.ap-chengdu.myqcloud.com",false);
+		// xmlhttp.send();
 		xmllink="https://album-1300776923.file.myqcloud.com";
 		xmlDoc=loadXMLDoc(xmllink);
 		var urls=xmlDoc.getElementsByTagName('Key');

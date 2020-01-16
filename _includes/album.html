@@ -15,11 +15,11 @@
   {% include _third-party/darkmode.html %}
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>  
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/_sass/_custom/album.css">
+  <link rel="stylesheet" href="/assets/css/album.css">
   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/_includes/_scripts/album.js"></script>
+  <script type="text/javascript" src="/assets/js/src/album.js"></script>
 </head>
-<body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang | default: page.language | default: site.language }}">
+<body itemscope onload="bedark()" itemtype="http://schema.org/WebPage" lang="{{ page.lang | default: page.language | default: site.language }}">
 	{% if site.Darkmode %}
 		<button onclick="changemode();" class="darkmode-toggle--white darkmode-toggle">🌓</button>
   	{% endif %}
