@@ -8,12 +8,6 @@
   </span>
   <span class="author" itemprop="copyrightHolder">{{ site.author }}</span>
 </div>
- {% if site.Darkmode %}
-	<script src="https://cdn.staticfile.org/Darkmode.js/1.5.4/darkmode-js.min.js"></script>
-	<script>
- 		new Darkmode().showWidget();
-	</script>
- {% endif %}
 {% if site.copyright %}
 <div class="powered-by">
   {{ __.footer.powered | replace: '%s', '<a class="theme-link" href="https://jekyllrb.com">Jekyll</a>') }}
