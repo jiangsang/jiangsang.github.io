@@ -145,22 +145,6 @@
 			border-bottom-style: none;
 			color: #555;
 		}
-		.darkmode-toggle {
-			background: #100f2c;
-			width: 2.7rem;
-			height: 2.7rem;
-			position: fixed;
-			border-radius: 50%;
-			border: none;
-			right: unset;
-			bottom: 12px;left: 12px;
-			cursor: pointer;
-			transition: all 0.5s ease;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			z-index:2;
-		}
 		@media (prefers-color-scheme: dark) {
 			.box,.navbar-default{
 				background:#1f1f1f;
