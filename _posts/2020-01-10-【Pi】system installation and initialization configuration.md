@@ -176,7 +176,7 @@ set nu
 
   进入树莓派输入如上命令查看分区内存大小，如果内存仍旧很小，就需要其他操作扩容分区了。
 
-  ![](C:\Users\jianger\Desktop\分区.JPG)
+  ![](https://article-1300776923.file.myqcloud.com/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%88%86%E5%8C%BA.JPG)
 
 - 相关问答与教程
 
