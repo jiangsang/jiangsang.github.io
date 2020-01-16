@@ -28,12 +28,13 @@
 		}
 	}
 	//页面一加载就判断是否是暗色模式
-	bedark=function(){
+	function bedark(){
 		var status=getCookie("status");
 		if (status=="dark"){
 			adddarkcss();
 		}
 	}
+	bedark();
 	changemode=function(){
 		var status=getCookie("status");
 		if (status=="dark"){
