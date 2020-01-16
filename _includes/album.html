@@ -12,14 +12,18 @@
 
   <title>{{ title }}</title>
   {% include _third-party/analytics/index.html %}
+  {% include _third-party/darkmode.html %}
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>  
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/_sass/_custom/album.css">
   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/_includes/_scripts/album.js"></script>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang | default: page.language | default: site.language }}">
+	{% if site.Darkmode %}
+		<button onclick="changemode();" class="darkmode-toggle--white darkmode-toggle">🌓</button>
+  	{% endif %}
 	{% include _partials/album.html %}
-	{% include _scripts/commons.html %}
-	{% include _partials/comments.html %}
 	{% include _scripts/boostrap.html %}
  </body>
 </html>
