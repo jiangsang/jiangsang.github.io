@@ -23,7 +23,9 @@
   {% if site.sidebar.position %}
     {% assign container_class = container_class | append: 'sidebar-position-' | append: site.sidebar.position %}
   {% endif %}
-
+  {% if site.Darkmode %}
+	<button class="darkmode-toggle--white darkmode-toggle">🌓</button>
+  {% endif %}
   <div class="{{ container_class }} {{ page_class }} ">
     <div class="headband"></div>
 
@@ -36,27 +38,6 @@
         <div class="content-wrap">
           <div id="content" class="content">
             {{ content }}
-              {% if site.Darkmode %}
-				<script src="https://cdn.staticfile.org/Darkmode.js/1.5.4/darkmode-js.js"></script>
-				<script>
-					var options = {
-							  bottom: '64px', // default: '32px'
-							  right: 'unset', // default: '32px'
-							  left: '32px', // default: 'unset'
-							  time: '0.5s', // default: '0.3s'
-							  mixColor: '#fff', // default: '#fff'
-							  backgroundColor: '#fff',  // default: '#fff'
-							  buttonColorDark: '#100f2c',  // default: '#100f2c'
-							  buttonColorLight: '#fff', // default: '#fff'
-							  saveInCookies: true, // default: true,
-							  label: '🌓', // default: ''
-							  autoMatchOsTheme: true // default: true
-							}
-				
-							const darkmode = new Darkmode(options);
-							darkmode.showWidget();
-				</script>
-		  	{% endif %}
           </div>
           {% include _third-party/duoshuo-hot-articles.html %}
           {% include _partials/comments.html %}

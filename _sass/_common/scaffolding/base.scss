@@ -96,3 +96,37 @@ dd {
   margin: 0;
   padding: 0;
 }
+.darkmode-toggle {
+	background: #100f2c;
+	width: 2.7rem;
+	height: 2.7rem;
+	position: fixed;
+	border-radius: 50%;
+	border: none;
+	right: unset;
+	bottom: 32px;left: 22px;
+	cursor: pointer;
+	transition: all 0.5s ease;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index:2;
+}
+@media (prefers-color-scheme: dark) {
+	.main{
+		background:#1f1f1f;
+	}
+	.header-inner,.sidebar-inner,.site-meta,.content-wrap,.post-copyright{
+		background:#101010;
+		color: #c1c1c1;
+	}
+	.highlight .code pre,.highlight .gutter pre,.highlight{
+		background:black;
+	}
+	.posts-expand .post-title-link{
+		color:#0078aa;
+	}
+	.darkmode-toggle--white {
+		background: #fff;
+	}
+}
