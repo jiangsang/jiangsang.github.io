@@ -1,0 +1,41 @@
+<script type="text/javascript">
+	function getCookie(name) {           
+	    var arr = document.cookie.split(';');           
+	    for (var i = 0; i < arr.length; i++) {
+	        var arr2 = arr[i].split('=');
+	        var arrTest = arr2[0].trim();
+	        if (arrTest == name) {         
+	            return arr2[1];
+	        }
+	    }
+	
+	}
+	function setCookie(name, value) {
+        var date = new Date();
+        var expires = 10;
+        date.setTime(date.getTime() + expires * 24 * 60 * 60 * 1000)
+        document.cookie = name + "=" + value + ";expires=" + date.toGMTString() + ";path=" + "/";
+    }
+	function adddarkcss(){
+		var creatHead = $('head');
+		creatHead.append('<link rel="stylesheet" href="https://jianger.netlify.com/assets/css/dark.css">')
+	}
+	function removedarkcss(){
+		var allsuspects=document.getElementsByTagName('link');
+		for (var i=allsuspects.length; i>=0;i--){
+		if (allsuspects[i] &&allsuspects[i].getAttribute('href')!=null && allsuspects[i].getAttribute('href').indexOf('https://jianger.netlify.com/assets/css/dark.css')!=-1)
+		  allsuspects[i].parentNode.removeChild(allsuspects[i]);
+		}
+	}	
+	function changemode(){
+		var dark=getCookie('dark');
+		if dark==1:
+			removedarkcss();
+			setCookie('dark', 0);
+		else
+			adddarkcss();
+			setCookie('dark', 1);
+				
+	}
+		
+</script>
