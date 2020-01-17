@@ -1,26 +1,51 @@
 @charset "UTF-8";
 .main{
-	background:#1f1f1f !important;;
+	background:#1f1f1f !important;
+	transition:background 2s;
+	-moz-transition:background 2s; /* Firefox 4 */
+	-webkit-transition:background 2s; /* Safari and Chrome */
+	-o-transition:background 2s; /* Opera */
+	
 }
 .header-inner,.sidebar-inner,.site-meta,.content-wrap,.post-copyright{
-	background:#101010 !important;;
-	color: #c1c1c1 !important;;
+	background:#101010 !important;
+	color: #eee !important;
+	transition:background 2s;
+	-moz-transition:background 2s; /* Firefox 4 */
+	-webkit-transition:background 2s; /* Safari and Chrome */
+	-o-transition:background 2s; /* Opera */
+
 }
 .highlight .code pre,.highlight .gutter pre,.highlight{
-	background:#eee !important;;
+	background:#eee !important;
+	transition:background 2s;
+	-moz-transition:background 2s; /* Firefox 4 */
+	-webkit-transition:background 2s; /* Safari and Chrome */
+	-o-transition:background 2s; /* Opera */
+
 }
 .posts-expand .post-title-link{
-	color:#0078aa !important;;
+	color:#0078aa !important;
 }
 .darkmode-toggle--white {
 	background: #fff;
 }
 .box,.navbar-default{
 	background:#1f1f1f !important;
+	transition:background 2s;
+	-moz-transition:background 2s; /* Firefox 4 */
+	-webkit-transition:background 2s; /* Safari and Chrome */
+	-o-transition:background 2s; /* Opera */
+
 }
 body{
 	background:#1f1f1f;
 	color:#eee;
+	transition:background 2s;
+	-moz-transition:background 2s; /* Firefox 4 */
+	-webkit-transition:background 2s; /* Safari and Chrome */
+	-o-transition:background 2s; /* Opera */
+	
 }
 a,.post-nav-item a{color:#0078aa !important;}
 .collapse ul li a,.navbar-default .navbar-brand{
@@ -28,4 +53,10 @@ a,.post-nav-item a{color:#0078aa !important;}
 }
 blockquote{
 	color:#c1c1c1 !important;
+}
+.site-title{
+	color:#ddd;
+}
+.friends .links-container:hover{
+		box-shadow:0 10px 10px #0078aa !important;
 }
