@@ -1,27 +1,14 @@
 @charset "UTF-8";
 .main{
-	background:#1f1f1f !important;
-	transition:background 2s;
-	-moz-transition:background 2s; /* Firefox 4 */
-	-webkit-transition:background 2s; /* Safari and Chrome */
-	-o-transition:background 2s; /* Opera */
-	
+	background:#1f1f1f !important;	
 }
 .header-inner,.sidebar-inner,.site-meta,.content-wrap,.post-copyright{
 	background:#101010 !important;
 	color: #eee !important;
-	transition:background 2s;
-	-moz-transition:background 2s; /* Firefox 4 */
-	-webkit-transition:background 2s; /* Safari and Chrome */
-	-o-transition:background 2s; /* Opera */
 
 }
 .highlight .code pre,.highlight .gutter pre,.highlight{
 	background:#eee !important;
-	transition:background 2s;
-	-moz-transition:background 2s; /* Firefox 4 */
-	-webkit-transition:background 2s; /* Safari and Chrome */
-	-o-transition:background 2s; /* Opera */
 
 }
 .posts-expand .post-title-link{
@@ -32,20 +19,11 @@
 }
 .box,.navbar-default{
 	background:#1f1f1f !important;
-	transition:background 2s;
-	-moz-transition:background 2s; /* Firefox 4 */
-	-webkit-transition:background 2s; /* Safari and Chrome */
-	-o-transition:background 2s; /* Opera */
 
 }
 body{
 	background:#1f1f1f;
-	color:#eee;
-	transition:background 2s;
-	-moz-transition:background 2s; /* Firefox 4 */
-	-webkit-transition:background 2s; /* Safari and Chrome */
-	-o-transition:background 2s; /* Opera */
-	
+	color:#eee;	
 }
 a,.post-nav-item a{color:#0078aa !important;}
 .collapse ul li a,.navbar-default .navbar-brand{
@@ -59,4 +37,10 @@ blockquote{
 }
 .friends .links-container:hover{
 		box-shadow:0 10px 10px #0078aa !important;
+}
+body,.main,.header-inner,.sidebar-inner,.site-meta,.content-wrap,.post-copyright,.highlight .code pre,.highlight .gutter pre,.highlight,.box,.navbar-default{
+			transition:background 2s;
+			-moz-transition:background 2s; /* Firefox 4 */
+			-webkit-transition:background 2s; /* Safari and Chrome */
+			-o-transition:background 2s; /* Opera */
 }
