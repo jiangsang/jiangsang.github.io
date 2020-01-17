@@ -2,7 +2,7 @@
 .main{
 	background:#1f1f1f !important;	
 }
-.header-inner,.sidebar-inner,.site-meta,.content-wrap,.post-copyright,td{
+.header-inner,.sidebar-inner,.site-meta,.content-wrap,.post-copyright,.post-body td{
 	background:#101010 !important;
 	color: #eee !important;
 

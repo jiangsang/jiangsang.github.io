@@ -18,10 +18,10 @@
     @include the-transition();
 
     @include mobile() {
-      display: none;
+     /* display: none;*/
     }
     @include tablet() {
-      display: none;
+     /* display: none;*/
     }
 
     &.back-to-top-on {
