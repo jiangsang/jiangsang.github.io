@@ -7,7 +7,7 @@
 	color: #c1c1c1 !important;;
 }
 .highlight .code pre,.highlight .gutter pre,.highlight{
-	background:black !important;;
+	background:#eee !important;;
 }
 .posts-expand .post-title-link{
 	color:#0078aa !important;;
@@ -22,6 +22,10 @@ body{
 	background:#1f1f1f;
 	color:#eee;
 }
+a,.post-nav-item a{color:#0078aa !important;}
 .collapse ul li a,.navbar-default .navbar-brand{
 	color:#ff6347 !important;
+}
+blockquote{
+	color:#c1c1c1 !important;
 }
