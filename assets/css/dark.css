@@ -22,8 +22,8 @@
 
 }
 body{
-	background:#1f1f1f;
-	color:#eee;	
+	background:#1f1f1f !important;
+	color:#eee !important;	
 }
 a,.post-nav-item a{color:#0078aa !important;}
 .collapse ul li a,.navbar-default .navbar-brand{

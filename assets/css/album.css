@@ -150,8 +150,8 @@
 				background:#1f1f1f;
 			}
 			body{
-				background:#0a0a0a;
-				color:#eee;
+				background:#0a0a0a !important;
+				color:#eee !important;
 			}
 			a{color:#fff !important;}
 			a:hover{
