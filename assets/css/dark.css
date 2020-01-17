@@ -2,12 +2,13 @@
 .main{
 	background:#1f1f1f !important;	
 }
-.header-inner,.sidebar-inner,.site-meta,.content-wrap,.post-copyright,.post-body td{
+.header-inner,.sidebar-inner,.site-meta,.content-wrap,.post-copyright,td{
 	background:#101010 !important;
 	color: #eee !important;
 
 }
-.highlight .code pre,.highlight .gutter pre,.highlight{
+
+.highlight .code pre,.highlight .gutter pre,.highlight,.highlight td{
 	background:#eee !important;
 
 }

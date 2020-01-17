@@ -115,22 +115,25 @@ dd {
 	align-items: center;
 	z-index:2;
 }
-body,.main,.header-inner,.sidebar-inner,.site-meta,.content-wrap,.post-copyright,.highlight .code pre,.highlight .gutter pre,.highlight,.box,.navbar-default{
+@media (max-width: 991px){
+	body,.main,.header-inner,.sidebar-inner,.site-meta,.content-wrap,.post-copyright,.highlight .code pre,.highlight .gutter pre,.highlight,.box,.navbar-default{
 			transition:background 2s;
 			-moz-transition:background 2s; /* Firefox 4 */
 			-webkit-transition:background 2s; /* Safari and Chrome */
 			-o-transition:background 2s; /* Opera */
+	}
 }
+
 @media (prefers-color-scheme: dark) {
 	.main{
 		background:#1f1f1f;
 	}
-	.header-inner,.sidebar-inner,.site-meta,.content-wrap,.post-copyright,.post-body td{
+	.header-inner,.sidebar-inner,.site-meta,.content-wrap,.post-copyright,td{
 		background:#101010 !important;
 		color: #eee !important;
 
 	}
-	.highlight .code pre,.highlight .gutter pre,.highlight{
+	.highlight .code pre,.highlight .gutter pre,.highlight,.highlight td{
 		background:#eee !important;	
 	}
 	.posts-expand .post-title-link{
