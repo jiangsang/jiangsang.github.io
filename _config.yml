@@ -140,6 +140,7 @@ menu:
   tags: /tags/
   links: /links/
   album: /album/
+  play: /play/
   #sitemap: /sitemap.xml
   #commonweal: /404.html
 
@@ -159,6 +160,7 @@ menu_icons:
   tags: tags
   links: link
   album: camera-retro
+  play: hourglass-half
   archives: archive
   sitemap: sitemap
   commonweal: heartbeat
