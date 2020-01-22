@@ -1,4 +1,9 @@
-  <h2 class="post-title" style="text-align: center;margin-top: 30px;" itemprop="name headline">玩机技巧</h2>
+---
+layout: page
+type: play
+title: 玩机技巧
+---
+  
  
   <div class="shortcut card" style="margin-top: 30px;">
 	  <a href="myshortcut" target="_blank">
