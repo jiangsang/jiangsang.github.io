@@ -308,10 +308,59 @@ z-index:1;
 	padding: 0 10px 0;
 	max-height: 220px;
 	width: 90%;
+	transition: all 0.5s ease-in-out;
     min-height: 120px;
     margin: 0 auto;
 }
 .content .card:hover{
 	box-shadow: 1px 1px 14px 3px;
 	transform: scale(1.1);
+}
+.section-nav .section-title {
+    color: #7b7b7b;
+    font-size: 18px;
+}
+section.row{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section-content .layui-col-md3 div {
+    border-radius: 5px;
+    padding: 15px;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    text-align: center;
+    height: 100px;
+}
+.layer_header{
+    padding: 15px;
+    min-height: 50px;
+    border-radius: 8px 8px 0 0;
+    color: #fff;
+}
+.layer_header .messages{
+	margin-top: 6px;
+}
+.layer_header .share{
+		float: right;
+		margin-top: 12px;
+}
+.layui-layer.layui-layer-page{
+	border-radius: 12px 12px 0 0;
+}
+.layer_header .item-icon {
+    height: 40px;
+    margin: 8px 10px;
+}
+.layer_header .item-icon,.layer_header .messages{
+	float: left;
+}
+.section-content{
+	margin-top: 20px!important;
+}
+.layer_content{
+	margin: 15px 8px;
 }
