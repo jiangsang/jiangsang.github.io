@@ -39,3 +39,6 @@ blockquote{
 .friends .links-container:hover{
 		box-shadow:0 10px 10px #0078aa !important;
 }
+.layui-layer-page .layui-layer-content{
+	background: #0e3e63;
+}
