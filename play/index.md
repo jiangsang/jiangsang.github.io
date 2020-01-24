@@ -15,7 +15,7 @@ title: 玩机技巧
 	  </div>
   </div>
   <div class="RSS card">
-	  <div style="text-align: center;margin-top:8px">
+	  <div style="text-align: center;padding-top:8px">
 		<a href="myrss" target="_blank" style="border-bottom:none;">
 			<i class="fa fa-rss" style="font-size: 56px;color: #fc6423;" aria-hidden="true"></i>
 		</a>
