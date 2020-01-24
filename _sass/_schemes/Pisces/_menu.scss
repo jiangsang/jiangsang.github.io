@@ -1,6 +1,7 @@
 .site-nav {
   border-top: none;
-
+  margin-left: 25px;
+  line-height: 26px;
   @include tablet() {
     display: none !important;
   }

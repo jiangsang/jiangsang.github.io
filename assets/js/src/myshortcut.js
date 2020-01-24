@@ -34,7 +34,7 @@
 								+'<div class="messages"><span>'+node.name+'</span>'
 								+'<span class="item-options" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="制作者">'
 									+'<p><i class="fa fa-user"></i>'
-									+'<span>'+node.author+'</span></p>' 
+									+'<span style="padding-left: 5px;">'+node.author+'</span></p>' 
 								+'</span></div>'
 								+'<div class="share">'
 									+'<a class="layui-btn layui-btn-warm layui-btn-sm" target="_blank" href="'+node.url+'">获取该捷径</a>'
