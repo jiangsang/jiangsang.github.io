@@ -14,7 +14,7 @@
 		  					html=html+'<div class="layui-col-md3 layui-col-xs6" data-id="'+node.id+'"> <div style="background-color: '+node.color+';"> <img class="item-icon nofancybox" height="40px" alt="图标" src="'+node.icon+'"> <div class="workflow-name">'+node.name+'</div>  </div> </div>';
 		  				})
 		  			div.innerHTML=html;
-		  			post.insertBefore(div,post.childNodes[0]);
+		  			post.insertBefore(div,post.childNodes[1]);
 		  			}
 		  		  });
 		  $(document).on('click', '.layui-col-md3.layui-col-xs6', function() {
