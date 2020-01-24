@@ -16,7 +16,7 @@ $.ajax({
 				div.innerHTML='<a href="'+element.url+'" alt="'+element.name+'">'+element.name+'</a>'
 				section1.appendChild(div);
 			})
-			post.appendChild(section1);
+			post.insertBefore(section1);
 		})
 	}
   });
