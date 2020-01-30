@@ -40,7 +40,7 @@ tags:
 
 ### Huginn的安装
 
-------
+---
 
 官方提供了很多种安装方式，我采用了Docker的安装方式，Docker是一个轻量的实现虚拟化的利器，不用一个一个安装需要的应用，个人用足以，使用方法不详述了，贴一个学习地址[Docker教程](http://www.baidu.com/link?url=sGzkYAT0i-FJpZobSUTkUzYlXWlmLEg82ZchlUAiznx1JcFsoELMKKrlXRsuiXyGIoMuOgpKazt7sEtfky1ZL_&wd=&eqid=eed6dca6000ef600000000065e0759d5)，本文也用不上太多，会用就好。下面开始安装，说明一下我的云服务器为腾讯云Centos 7.5，以下操作均基于此系统。
 
@@ -207,4 +207,13 @@ Type选择Data output Agent,Sources选择第二个Agent，secrets填写RSS地址
 至此，一个专属RSS源就已生成，点击第三个Agent就能看到下图所示，把它添加到RSS阅读器上去吧。
 
 ![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/Huginn%E5%88%B6%E4%BD%9CRSS/Huginn12.PNG)
+
+
+
+### 参考
+
+---
+
+- [Huginn实现自动通过slack推送豆瓣高分电影](https://www.cnblogs.com/tiantianbyconan/p/8719444.html)	--[天天_byconan](https://www.cnblogs.com/tiantianbyconan)
+
 
