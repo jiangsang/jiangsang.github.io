@@ -13,9 +13,8 @@
 <head>
   {% include _partials/head.html %}
   <title>{{ title }}</title>
-  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
-  {% include _third-party/darkmode.html %}
   {% include _third-party/analytics/index.html %}
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang | default: page.language | default: site.language }}">
@@ -65,16 +64,9 @@
     {% endunless %}
 
   </div>
-
-  {% include _scripts/vendors.html %}
-  {% include _scripts/commons.html %}
-
-  {% assign scheme_script = '_scripts/schemes/' | append: site.scheme | downcase | append: '.html' %}
-  {% include {{ scheme_script }} %}
-
-  {{ script_extra }}
-  <!-- badApplePlayer -->
+	  
   {% if site.badApplePlayer.enable %}
+  	<!-- badApplePlayer -->
   	<div class="player">
   		<!-- Your XlchPlayerKey -->
 	    <script>XlchKey="{{site.badApplePlayer.XlchKey}}";</script>
@@ -89,6 +81,14 @@
 	  		
   	</div>
   {% endif %}
+  {% include _scripts/vendors.html %}
+  {% include _scripts/commons.html %}
+  {% include _scripts/custom/custom.html %}
+  {% assign scheme_script = '_scripts/schemes/' | append: site.scheme | downcase | append: '.html' %}
+  {% include {{ scheme_script }} %}
+
+  {{ script_extra }}
+
 
   {% include _scripts/boostrap.html %}
   

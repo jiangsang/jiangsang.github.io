@@ -1,4 +1,4 @@
-{% assign js_customs = 'src/utils.js, src/motion.js, src/canvas.js' | split: ", " %}
+{% assign js_customs = 'src/utils.js, src/darkmode.js, src/motion.js, src/canvas.js' | split: ", " %}
 
 {% for custom in js_customs %}
   <script type="text/javascript" src="{{ site.js | relative_url }}/{{ custom }}?v={{ site.version }}"></script>
