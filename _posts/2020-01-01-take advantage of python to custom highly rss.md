@@ -11,7 +11,7 @@ tags:
 
 ### 前言
 
-本篇属于`定制RSS`系列终极一弹，是三种方式中自由度最高、定制化最强的，也需要一定的编程能力。附上前两篇链接：1、[利用Feed43为网站自制RSS源](https://jianger.space/%E5%88%A9%E7%94%A8Feed43%E4%B8%BA%E7%BD%91%E7%AB%99%E8%87%AA%E5%88%B6RSS%E6%BA%90/)；2、[如何优雅快速地利用Huginn制作专属RSS](https://jianger.space/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E4%BE%BF%E6%8D%B7%E5%9C%B0%E5%88%A9%E7%94%A8Huginn%E5%88%B6%E4%BD%9CRSS/)。开始之前先对比一下以上三种方式：
+本篇属于`定制RSS`系列终极一弹，是三种方式中自由度最高、定制化最强的，也需要一定的编程能力。附上前两篇链接：1、[利用Feed43为网站自制RSS源](https://jianger.space/take-advantage-of-feed43-to-custom-rss/)；2、[如何优雅快速地利用Huginn制作专属RSS](https://jianger.space/take-advantage-of-huginn-to-make-rss/)。开始之前先对比一下以上三种方式：
 
 | 方法   | 优势                   | 不足                              | 复杂性 | 稳定性 | 定制性 |
 | :----- | ---------------------- | --------------------------------- | ------ | ------ | ------ |
