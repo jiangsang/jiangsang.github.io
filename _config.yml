@@ -78,7 +78,7 @@ plugins:
 favicon: /assets/favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "jianger's Blog,jianger,刘江的博客,docker,huginn,jekyll,数据结构"
+keywords: "jianger's Blog,jianger,刘江,刘江的博客,docker,huginn,jekyll,数据结构"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
