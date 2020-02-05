@@ -54,7 +54,7 @@ HTTP是无状态的协议，对事务处理没有记忆能力，每次客户端�
 - session是一种记录服务器和客户端会话状态的机制
 - session是基于cookie实现的，session存储在服务器端，sessionid会存储到客户端的cookie中
 
-![](<https://mmbiz.qpic.cn/sz_mmbiz/udZl15qqib0M9dsYRRr3f2oaJln4KIOOlMoWpkdVMcdqHbRGMHX6RJzWicsAX4ic5ibvZ2ibJGqD5rlkIvZ5tmxpynA/640?wx_fmt=other&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1>)
+![](https://article-1300776923.file.myqcloud.com/session-cookie/session.jpg)
 
 **session 认证流程：**
 
@@ -92,7 +92,7 @@ HTTP是无状态的协议，对事务处理没有记忆能力，每次客户端�
 - 支持跨程序调用
 - **token 的身份验证流程：**
 
-![img](https://mmbiz.qpic.cn/sz_mmbiz/udZl15qqib0M9dsYRRr3f2oaJln4KIOOl1wLOVALS2fTgLnNjw6NJ217vDuiacGX9icypUADMQTxOGPPUS7JKP59w/640?wx_fmt=other&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](https://article-1300776923.file.myqcloud.com/session-cookie/token.jpg)
 
 1. 客户端使用用户名跟密码请求登录
 2. 服务端收到请求，去验证用户名与密码
