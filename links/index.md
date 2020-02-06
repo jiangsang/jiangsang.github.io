@@ -73,7 +73,7 @@ title: 友情链接
 		<li class="links-container">
 		    <a href="https://www.sitstars.com/" target="_blank" class="links-link">
 			  <div class="links-item">
-			    <div class="links-img" style="background:url('https://im.yanshu.work/web/logo_min.webp');width: 100%;padding-top: 100%;background-repeat: no-repeat;background-size: cover;"></div>
+			    <div class="links-img" style="background:url('https://vip1.loli.net/2020/02/06/dVJDZ78Sg9omP5H.jpg');width: 100%;padding-top: 100%;background-repeat: no-repeat;background-size: cover;"></div>
 				<div class="links-title">
 				  <h4>雁陎的自耕地</h4>
 				</div>
