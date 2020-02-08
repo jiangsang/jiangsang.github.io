@@ -7,7 +7,7 @@ title: 玩机技巧
  
 <div class="cardcontent">
   <div class="shortcut card">
-	  <a href="myshortcut" target="_blank">
+	  <a href="myshortcut">
 	  	<img class="nofancybox" width="70px" height="70px" src="https://help.apple.com/assets/5B9014F10946229C37C593B4/5B9014F50946229C37C593C7/zh_CN/18c714c61bfdebca44fe6989f0a2511d.png" />
 	  </a>
 	  <div class="details" style="color: white;">
@@ -16,7 +16,7 @@ title: 玩机技巧
   </div>
   <div class="RSS card">
 	  <div style="text-align: center;padding-top:8px">
-		<a href="myrss" target="_blank" style="border-bottom:none;">
+		<a href="myrss" style="border-bottom:none;">
 			<i class="fa fa-rss" style="font-size: 56px;color: #fc6423;" aria-hidden="true"></i>
 		</a>
 	  </div>

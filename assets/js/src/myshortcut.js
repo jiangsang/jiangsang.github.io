@@ -37,13 +37,13 @@
 									+'<span style="padding-left: 5px;">'+node.author+'</span></p>' 
 								+'</span></div>'
 								+'<div class="share">'
-									+'<a class="layui-btn layui-btn-warm layui-btn-sm" target="_blank" href="'+node.url+'">获取该捷径</a>'
+									+'<a class="layui-btn layui-btn-warm layui-btn-sm" href="'+node.url+'">获取该捷径</a>'
 								+'</div>'
 							+'</div>'
 							+'<div class="layer_content">'
 							+node.description
 							+'</div><hr>'
-							+'<p><center>操作演示</center><img src="'+node.images+'" alt="" title=""></p>'
+							+'<p><center>操作演示</center><img src="'+node.images+'" alt="操作演示" title="操作演示"></p>'
 							
 						  });
 						  return;
