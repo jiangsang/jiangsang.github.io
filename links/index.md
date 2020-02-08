@@ -41,7 +41,7 @@ title: 友情链接
 
 <ul class="friends">
     <li class="links-container">
-		    <a href="https://iiycy.com" target="_blank" class="links-link">
+		    <a href="https://iiycy.com" target="_blank" class="links-link" title="一个沙雕网友的博客，咕～">
 			  <div class="links-item">
 			    <div class="links-img" style="background:url('https://imyee.cn/a.jpg');width: 100%;padding-top: 100%;background-repeat: no-repeat;background-size: cover;"></div>
 				<div class="links-title">
@@ -61,7 +61,7 @@ title: 友情链接
 			  </a>
 		</li>
 		<li class="links-container">
-		    <a href="https://bestzuo.cn" target="_blank" class="links-link">
+		    <a href="https://bestzuo.cn" target="_blank" class="links-link" title="码农人生">
 			  <div class="links-item">
 			    <div class="links-img" style="background:url('https://site-1258928558.cos.ap-guangzhou.myqcloud.com/touxiang.jpg');width: 100%;padding-top: 100%;background-repeat: no-repeat;background-size: cover;"></div>
 				<div class="links-title">
@@ -71,7 +71,7 @@ title: 友情链接
 			  </a>
 		</li>
 		<li class="links-container">
-		    <a href="https://www.sitstars.com/" target="_blank" class="links-link">
+		    <a href="https://www.sitstars.com/" target="_blank" class="links-link" title="坐于群星之上">
 			  <div class="links-item">
 			    <div class="links-img" style="background:url('https://vip1.loli.net/2020/02/06/dVJDZ78Sg9omP5H.jpg');width: 100%;padding-top: 100%;background-repeat: no-repeat;background-size: cover;"></div>
 				<div class="links-title">
@@ -80,6 +80,16 @@ title: 友情链接
 		      </div>
 			  </a>
 		</li>
+		<li class="links-container">
+		    <a href="https://lagoonwe.github.io/" target="_blank" class="links-link"  title="一个可以py也够浪的中二晚期患者">
+			  <div class="links-item">
+			    <div class="links-img" style="background:url('https://lagoonwe.github.io/images/avater.png?v=1581139936523');width: 100%;padding-top: 100%;background-repeat: no-repeat;background-size: cover;"></div>
+				<div class="links-title">
+				  <h4>小李的狗窝</h4>
+				</div>
+		      </div>
+			  </a>
+		</li>		
 </ul>
 
 
