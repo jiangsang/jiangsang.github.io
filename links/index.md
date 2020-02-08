@@ -83,7 +83,7 @@ title: 友情链接
 		<li class="links-container">
 		    <a href="https://lagoonwe.github.io/" target="_blank" class="links-link"  title="一个可以py也够浪的中二晚期患者">
 			  <div class="links-item">
-			    <div class="links-img" style="background:url('https://lagoonwe.github.io/images/avater.png?v=1581139936523');width: 100%;padding-top: 100%;background-repeat: no-repeat;background-size: cover;"></div>
+			    <div class="links-img" style="background:url('https://lagoonwe.github.io/images/avatar.png?v=1581139936523');width: 100%;padding-top: 100%;background-repeat: no-repeat;background-size: cover;"></div>
 				<div class="links-title">
 				  <h4>小李的狗窝</h4>
 				</div>
