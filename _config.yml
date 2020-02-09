@@ -111,15 +111,15 @@ carousel:
   enable: true
   item: [
     {
-      'link': '#',
+      'link': false,
       'img': 'https://jianger.space/assets/images/alita.JPG'
     },
     {
-      'link': '#',
+      'link': false,
       'img': 'https://article-1300776923.cos.ap-chengdu.myqcloud.com/2020.JPG'
     },
     {
-      'link': 'https://jianger.space/album/',
+      'link': '/album/',
       'img': 'https://s2.ax1x.com/2019/10/04/uBEMT0.jpg'
     }
   ]

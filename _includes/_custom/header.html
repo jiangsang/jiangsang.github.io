@@ -16,11 +16,11 @@
       <div class="carousel-inner" style="border-radius: 12px;">
        {% for item in site.carousel.item %}
               {% if forloop.index0==0 %}
-                  <a class="item active" href="{{ item.link }}" target="_blank" style="height: 100%;">
+                  <a class="item active" {% if item.link %} href="{{ item.link }}" {% endif %} style="height: 100%;">
             	      <img src="{{item.img}}" class="nofancybox"  style="width: 100%;" >
 	          </a>
               {% else %}
-                  <a class="item" href="{{ item.link }}" target="_blank" style="height: 100%;">
+                  <a class="item" {% if item.link %} href="{{ item.link }}" {% endif %} style="height: 100%;">
                       <img src="{{item.img}}" class="nofancybox"  style="width: 100%;" >
 	          </a>
               {% endif %}
