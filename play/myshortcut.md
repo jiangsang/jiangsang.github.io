@@ -4,11 +4,17 @@ type: play
 title: 我的捷径集合
 ---
 
-
   <link rel="stylesheet" href="https://www.layuicdn.com/layui/css/layui.css" />
+
+<style>
+   .footer img {
+       display: block;
+    }
+</style>
+
   <script src="https://www.layuicdn.com/layui/layui.js"></script>
   <script type="text/javascript" src="{{ site.js | relative_url }}/src/myshortcut.js"></script>
-  
+
   <div id="comments" style="margin-top: 50px;"></div>
   <!--Leancloud 操作库:-->
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
