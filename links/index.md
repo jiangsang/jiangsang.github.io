@@ -89,7 +89,17 @@ title: 友情链接
 				</div>
 		      </div>
 			  </a>
-		</li>		
+		</li>
+		<li class="links-container">
+		    <a href="https://www.iszy.cc/links/" target="_blank" class="links-link"  title="生活吐槽 & 学习记录">
+			  <div class="links-item">
+			    <div class="links-img" style="background:url(' https://www.iszy.cc/images/avatar.png');width: 100%;padding-top: 100%;background-repeat: no-repeat;background-size: cover;"></div>
+				<div class="links-title">
+				  <h4>随遇而安</h4>
+				</div>
+		      </div>
+			  </a>
+		</li>	
 </ul>
 
 
