@@ -1,0 +1,70 @@
+/*以下是玩机页面*/
+.content .card{
+	background-color: #1c1f5a;
+	border-radius: 15px;
+	padding: 0 10px 0;
+	width: 42%;
+	transition: all 0.5s ease-in-out;
+    height: 165px;
+    margin: 0 auto;
+}
+.cardcontent{
+	display: flex;
+    margin-top: 40px;
+}
+.content .card:hover{
+	box-shadow: 1px 1px 14px 3px;
+	transform: scale(1.1);
+}
+.section-nav .section-title {
+    color: #fff;
+    font-size: 18px;
+}
+section.row{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.section-nav {
+    background-color: cornflowerblue;
+}
+.section-content .layui-col-md3 div:first-child {
+    border-radius: 5px;
+    padding: 15px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    height: 100px;
+}
+.workflow-name{
+	margin-top:20px;
+}
+.layer_header{
+    padding: 15px;
+    min-height: 50px;
+    border-radius: 8px 8px 0 0;
+    color: #fff;
+}
+.layer_header .messages{
+	margin-top: 8px;
+}
+.layer_header .share{
+		float: right;
+		margin-top: 12px;
+}
+.layui-layer.layui-layer-page{
+	border-radius: 12px 12px 0 0;
+}
+.layer_header .item-icon {
+    height: 40px;
+    margin: 8px 10px;
+}
+.layer_header .item-icon,.layer_header .messages{
+	float: left;
+}
+.section-content{
+	margin-top: 20px!important;
+}
+.layer_content{
+	margin: 15px 8px;
+}
