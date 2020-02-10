@@ -85,7 +85,7 @@ display: block;
 z-index: 999;
 border-radius: 5px 5px 0 0;
 background: #ffc802;
-background: linear-gradient(to rightright, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+background: linear-gradient(to right, #ffc802, #ffa500, #ffc802, #ffa500, #ffc802);
 }
 .deng:after {
 position: absolute;
@@ -98,13 +98,12 @@ display: block;
 margin-left: 20px;
 border-radius: 0 0 5px 5px;
 background: #ffc802;
-background: linear-gradient(to rightright, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+background: linear-gradient(to right, #ffc802, #ffa500, #ffc802, #ffa500, #ffc802);
 }
 .deng-t {
 font-family: 华文行楷,Arial,Lucida Grande,Tahoma,sans-serif;
 font-size: 3.2rem;
 color: #ffdb00;
-font-weight: bold;
 line-height: 85px;
 text-align: center;
 }
