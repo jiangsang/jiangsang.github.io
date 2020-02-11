@@ -99,7 +99,17 @@ title: 友情链接
 				</div>
 		      </div>
 			  </a>
-		</li>	
+		</li>
+		<li class="links-container">
+		    <a href="https://sqdxwz.com" target="_blank" class="links-link"  title="可以允许不完美，但不能不做！">
+			  <div class="links-item">
+			    <div class="links-img" style="background:url(' https://s2.ax1x.com/2019/12/23/l9FdHA.md.jpg');width: 100%;padding-top: 100%;background-repeat: no-repeat;background-size: cover;"></div>
+				<div class="links-title">
+				  <h4>王荣胜</h4>
+				</div>
+		      </div>
+			  </a>
+		</li>
 </ul>
 
 
