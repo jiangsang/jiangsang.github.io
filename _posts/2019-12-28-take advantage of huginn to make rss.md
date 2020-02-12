@@ -210,10 +210,10 @@ Type选择Data output Agent,Sources选择第二个Agent，secrets填写RSS地址
 
 
 
-### 参考
+### 参考来源
 
 ---
 
-- [Huginn实现自动通过slack推送豆瓣高分电影](https://www.cnblogs.com/tiantianbyconan/p/8719444.html)	--[天天_byconan](https://www.cnblogs.com/tiantianbyconan)
+- [Huginn实现自动通过slack推送豆瓣高分电影](https://blog.wangjiegulu.com/2018/04/03/huginn_douban_high_score_movies_and_slack/)	--[Wang Jie's Blog](https://blog.wangjiegulu.com/)
 
 
