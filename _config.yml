@@ -239,7 +239,7 @@ font:
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
   # GitHub: https://github.com/jiangsang
-  Email: mailto:736750759@qq.com
+  # Email: mailto:736750759@qq.com
   # CnBlog: https://www.cnblogs.com/liujiangblog
 
 
@@ -573,7 +573,7 @@ vkontakte_api:
 # Star rating support to each article.
 # To get your ID visit https://widgetpack.com
 rating:
-  enable: true
+  enable: false
   id: 22622
   color:  fc6423
 
