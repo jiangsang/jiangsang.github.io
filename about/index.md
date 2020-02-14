@@ -25,13 +25,13 @@ type: about
 
 ---
 
-> 欢迎转载本站博文，请在文章页面明显位置给出原文链接，感谢您的阅读
+ 欢迎转载本站博文，请在文章页面明显位置给出原文链接，感谢您的阅读
 
-  <div id="comments"></div>
+<!--  <div id="comments"></div>
   <!--Leancloud 操作库:-->
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <!--<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
   <!--Valine 的核心代码库:-->
-  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <!--<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script>
      new Valine({
         av: AV,
@@ -43,4 +43,4 @@ type: about
         notify: 'true',
         verify: 'true',
     })
-  </script>
+  </script> -->

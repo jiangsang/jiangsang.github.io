@@ -160,7 +160,7 @@ menu_icons:
   categories: th
   schedule: calendar
   tags: tags
-  links: link
+  # links: link
   album: camera-retro
   play: hourglass-half
   archives: archive
@@ -474,7 +474,7 @@ changyan:
 # You can get your appid and appkey from https://leancloud.app
 # more info please open https://valine.js.org
 valine:
-  enable: true
+  enable: false
   appid: e1OuTd58aBj3h9ptV4oIaNBY-9Nh9j0Va
   appkey: CqYVue1Ivtz4TJnBVjUvY9NY
   notify: true
