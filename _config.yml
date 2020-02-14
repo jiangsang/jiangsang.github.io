@@ -140,7 +140,7 @@ menu:
   about: /about/
   archives: /archives/
   tags: /tags/
-  links: /links/
+  # links: /links/
   album: /album/
   play: /play/
   #sitemap: /sitemap.xml
@@ -238,9 +238,9 @@ font:
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
-  GitHub: https://github.com/jiangsang
+  # GitHub: https://github.com/jiangsang
   Email: mailto:736750759@qq.com
-  CnBlog: https://www.cnblogs.com/liujiangblog
+  # CnBlog: https://www.cnblogs.com/liujiangblog
 
 
 # Social Links Icons
@@ -278,7 +278,7 @@ toc:
 # Creative Commons 4.0 International License.
 # http://creativecommons.org/
 # Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
-creative_commons: by-nc-sa
+#creative_commons: by-nc-sa
 #creative_commons:
 badApplePlayer:
   enable: false
