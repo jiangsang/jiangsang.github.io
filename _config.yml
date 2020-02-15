@@ -140,7 +140,7 @@ menu:
   about: /about/
   archives: /archives/
   tags: /tags/
-  links: /links/
+  # links: /links/
   album: /album/
   play: /play/
   #sitemap: /sitemap.xml
@@ -160,7 +160,7 @@ menu_icons:
   categories: th
   schedule: calendar
   tags: tags
-  links: link
+  # links: link
   album: camera-retro
   play: hourglass-half
   archives: archive
@@ -238,9 +238,9 @@ font:
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
-  GitHub: https://github.com/jiangsang
-  Email: mailto:jianger@debuginn.com
-  CnBlog: https://www.cnblogs.com/liujiangblog
+  # GitHub: https://github.com/jiangsang
+  # Email: mailto:jianger@debuginn.com
+  # CnBlog: https://www.cnblogs.com/liujiangblog
 
 
 # Social Links Icons
@@ -474,7 +474,7 @@ changyan:
 # You can get your appid and appkey from https://leancloud.app
 # more info please open https://valine.js.org
 valine:
-  enable: true
+  enable: false
   appid: e1OuTd58aBj3h9ptV4oIaNBY-9Nh9j0Va
   appkey: CqYVue1Ivtz4TJnBVjUvY9NY
   notify: true
@@ -573,7 +573,7 @@ vkontakte_api:
 # Star rating support to each article.
 # To get your ID visit https://widgetpack.com
 rating:
-  enable: true
+  enable: false
   id: 22622
   color:  fc6423
 
