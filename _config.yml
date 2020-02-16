@@ -16,11 +16,11 @@ date_format: '%Y-%m-%d'
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com' and baseurl as '/child'
 url: https://jianger.space
 baseurl:
-permalink: /:title
+permalink: /:title/
 
 # Pagination
 paginate: 6
-paginate_path: "/page:num"
+paginate_path: "/page:num/"
 #archive:
   #paginate: 10
   #paginate_path: "/page:num/"
