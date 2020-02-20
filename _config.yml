@@ -111,12 +111,12 @@ carousel:
   enable: true
   item: [
     {
-      'link': false,
-      'img': 'https://jianger.space/assets/images/alita.JPG'
+      'link': '/take-advantage-of-feed43-to-custom-rss/',
+      'img': 'https://article-1300776923.file.myqcloud.com/pages/RSS.jpg'
     },
     {
-      'link': false,
-      'img': 'https://article-1300776923.cos.ap-chengdu.myqcloud.com/2020.JPG'
+      'link': '/pi-system-installation-and-initialization-configuration/',
+      'img': 'https://article-1300776923.file.myqcloud.com/pages/raspberry%20pi.jpg'
     },
     {
       'link': '/album/',
@@ -124,7 +124,7 @@ carousel:
     }
   ]
 #春节灯笼
-lantern: true
+lantern: false
 # If true, will add site-subtitle to index page, added in jekyll config.
 # subtitle: Subtitle
 index_with_subtitle: false

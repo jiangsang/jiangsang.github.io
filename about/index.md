@@ -11,8 +11,9 @@ type: about
 
  - 本科软件工程
  - Java编程菜鸡
- - 喜欢鼓捣新玩意儿
- - PhotoShop略知一二
+ - Python编程弱鸡
+ - 喜欢鼓捣新鲜玩意儿
+ - PhotoShop略懂一二
  - 喜欢探索涉足未知领域
 
 ---
@@ -20,7 +21,7 @@ type: about
 ## Contract
 
 - WeChat：lj13517953394
-- Email：736750759@qq.com
+- Email：<a href="jianger@debuginn.com">jianger@debuginn.com</a>
 - QQ：736750759
 
 ---
