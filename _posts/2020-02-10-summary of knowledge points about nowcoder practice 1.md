@@ -124,7 +124,9 @@ TCP的拥塞控制采用了四种算法，即 **慢开始** 、 **拥塞避免**
 
 ### HTTP 和 HTTPS 的区别？
 **端口** ：HTTP的URL由“http://”起始且默认使用端口80，而HTTPS的URL由“https://”起始且默认使用端口443。
+
 **安全性和资源消耗**： HTTP协议运行在TCP之上，所有传输的内容都是明文，客户端和服务器端都无法验证对方的身份。HTTPS是运行在SSL/TLS之上的HTTP协议，SSL/TLS 运行在TCP之上。所有传输的内容都经过加密，加密采用对称加密，但对称加密的密钥用服务器方的证书进行了非对称加密。所以说，HTTP 安全性没有 HTTPS高，但是 HTTPS 比HTTP耗费更多服务器资源。
+
 - 对称加密：密钥只有一个，加密解密为同一个密码，且加解密速度快，典型的对称加密算法有DES、AES等；
 - 非对称加密：密钥成对出现（且根据公钥无法推知私钥，根据私钥也无法推知公钥），加密解密使用不同密钥（公钥加密需要私钥解密，私钥加密需要公钥解密），相对对称加密速度较慢，典型的非对称加密算法有RSA、DSA等。
 
@@ -132,8 +134,5 @@ TCP的拥塞控制采用了四种算法，即 **慢开始** 、 **拥塞避免**
 
 - [Cookie、Session和Token的区别](https://jianger.space/the-differiences-of-cookie-session-and-token/)
 - [OSI七层模型](https://jianger.space/open-system-interconnect/)
-
-### 参考来源
-
 - [TCP的三次握手与四次挥手（详解+动图）](https://blog.csdn.net/qzcsu/article/details/72861891)	--CSDN·[小书go](https://blog.csdn.net/qzcsu)
 
