@@ -38,7 +38,7 @@ title: 友情链接
 	}
 } 
 </style>
-<!-- 
+ 
 <ul class="friends">
     <li class="links-container">
 		    <a href="https://iiycy.com" target="_blank" class="links-link" title="一个沙雕网友的博客，咕～">
@@ -132,13 +132,13 @@ title: 友情链接
 ( •̆ ᵕ •̆ )◞ ❤
 
 ---
- -->
 
-<!--  <div id="comments" style="margin-top: 50px;"></div>
+
+  <div id="comments" style="margin-top: 50px;"></div>
   <!--Leancloud 操作库:-->
-  <!--<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
   <!--Valine 的核心代码库:-->
-  <!--<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script>
      new Valine({
         av: AV,
@@ -150,4 +150,4 @@ title: 友情链接
         notify: 'true',
         verify: 'true',
     })
-  </script> -->
+  </script>
