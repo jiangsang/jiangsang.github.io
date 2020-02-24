@@ -110,6 +110,16 @@ title: 友情链接
 		      </div>
 			  </a>
 		</li>
+		<li class="links-container">
+		    <a href="https://www.debuginn.com" target="_blank" class="links-link"  title="热爱生活｜分享技术｜鼓捣科技但不能不做！">
+			  <div class="links-item">
+			    <div class="links-img" style="background:url('/assets/images/avatar.jpeg)');width: 100%;padding-top: 100%;background-repeat: no-repeat;background-size: cover;"></div>
+				<div class="links-title">
+				  <h4>Jianger's Blog</h4>
+				</div>
+		      </div>
+			  </a>
+		</li>
 </ul>
 
 
