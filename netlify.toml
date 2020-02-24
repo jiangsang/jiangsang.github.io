@@ -1,0 +1,7 @@
+[[redirects]]
+  from = "https://jianger.netlify.com/*"
+  to = "https://jianger.space/:splat"
+  force = true
+
+# A redirect rule with all the supported properties
+
