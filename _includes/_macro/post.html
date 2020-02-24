@@ -331,9 +331,11 @@
       {% endif  %}
     </div>
 
-    <div style="text-align: center">
+    <div class="endtag" style="text-align: center">
       {% unless is_index %}
-      	<p style="color:#f44336">-------------本文已完 ❤ 谢谢阅读-------------</p>
+      	  <fieldset align="center">
+      	    <legend>本文已结束 ❤ 感谢阅读</legend>
+      	  </fieldset>
         {% include _macro/wechat-subscriber.html %}
       {% endunless %}
     </div>

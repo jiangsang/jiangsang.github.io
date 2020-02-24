@@ -38,6 +38,14 @@
   -ms-transform: rotate(30deg);
   @include transform(rotate(30deg));
 }
+.endtag fieldset{
+border-width: 1px 0 0;
+border-color: #f44336;
+}
+.endtag fieldset legend{
+	padding: 0 10px;
+	color: #f44336;
+}
 
 @import "post-expand";
 @import "post-collapse";
