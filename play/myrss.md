@@ -9,9 +9,9 @@ title: RSS源集合
 
   <div id="comments" style="margin-top: 50px;"></div>
   <!--Leancloud 操作库:-->
-<!--  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
   <!--Valine 的核心代码库:-->
-  <!--<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script>
      new Valine({
         av: AV,
@@ -23,4 +23,4 @@ title: RSS源集合
         notify: 'true',
         verify: 'true',
     })
-  </script> -->
+  </script> 
