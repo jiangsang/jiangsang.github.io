@@ -130,16 +130,15 @@ carousel:
   ]
 #春节灯笼
 lantern: false
-
 #友情链接
 friends:
   enable: true
   items: [
     {
-      'name': '/take-advantage-of-feed43-to-custom-rss/',
-      'avatar': '/take-advantage-of-feed43-to-custom-rss/',
-      'content': '/take-advantage-of-feed43-to-custom-rss/',
-      'link': 'https://article-1300776923.file.myqcloud.com/pages/RSS.jpg'
+      'name': '烨某人的博客',
+      'avatar': 'https://imyee.cn/a.jpg',
+      'content': '一个沙雕网友的博客，咕～',
+      'link': 'https://iiycy.com/'
     },
     {
       'name': '原谅糖',
@@ -150,7 +149,7 @@ friends:
     {
       'name': 'Sanarous',
       'avatar': 'https://site-1258928558.cos.ap-guangzhou.myqcloud.com/touxiang.jpg',
-      'content': '码农人生,
+      'content': '码农人生',
       'link': 'https://bestzuo.cn'
     },
     {
