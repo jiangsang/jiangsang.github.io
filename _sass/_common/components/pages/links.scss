@@ -1,0 +1,32 @@
+	.friends{
+		display: flow-root;
+		width:100%;
+		padding: 0;
+		margin-left: 20px
+	}
+    .friends .links-container{
+    transition:transform 0.5s;
+    width:25%;
+	list-style-type: none;
+    float: left;
+    margin: 2%;
+	}
+    .friends .links-container .links-title{
+        background-color:#74c3fb;
+        text-align:center;
+        margin:0;
+        padding:0;
+    }
+    .friends .links-container .links-title h4{
+    	color:white;
+    	margin: 10px 0 0;
+    }
+	.friends .links-container:hover{
+		box-shadow:0 10px 10px #bababa;
+		transform:scale(1.1);
+}
+@media (min-width: 992px){
+	.friends .links-container{
+		width:20% !important;
+	}
+}

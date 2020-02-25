@@ -1,4 +1,4 @@
-// Custom styles.
+// 首页轮播图
 @charset "UTF-8";
 .glyphicon-chevron-left:before{
 	/* content: "《" */
@@ -31,7 +31,7 @@
       height: 100% !important;
    }
    .carousel-inner{
-   		height:210px !important;
+   		height:200px !important;
    }
    .carousel-inner > .item > a > img {
   	height : 90%;

@@ -425,3 +425,7 @@
 				});//end event
 			}
 		});//end forEach
+		layui.use('flow', function(){
+			var flow = layui.flow;
+			  flow.lazyimg(); 
+			});
