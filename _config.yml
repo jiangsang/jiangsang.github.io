@@ -132,7 +132,7 @@ carousel:
 lantern: false
 
 #友情链接
-friends: 
+friends:
   enable: true
   items: [
     {
@@ -184,7 +184,6 @@ friends:
       'link': 'https://www.debuginn.com'
     }
   ] 
-
 # If true, will add site-subtitle to index page, added in jekyll config.
 # subtitle: Subtitle
 index_with_subtitle: false
