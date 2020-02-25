@@ -137,49 +137,49 @@ friends:
   items: [
     {
       'name': '/take-advantage-of-feed43-to-custom-rss/',
-      'avatar': '/take-advantage-of-feed43-to-custom-rss/',	  
+      'avatar': '/take-advantage-of-feed43-to-custom-rss/',
       'content': '/take-advantage-of-feed43-to-custom-rss/',
       'link': 'https://article-1300776923.file.myqcloud.com/pages/RSS.jpg'
     },
     {
       'name': '原谅糖',
-      'avatar': 'https://blog.luhe.xyz/mylogo.png',	  
+      'avatar': 'https://blog.luhe.xyz/mylogo.png',
       'content': '',
       'link': 'https://blog.luhe.xyz'
     },
     {
       'name': 'Sanarous',
-      'avatar': 'https://site-1258928558.cos.ap-guangzhou.myqcloud.com/touxiang.jpg',	  
+      'avatar': 'https://site-1258928558.cos.ap-guangzhou.myqcloud.com/touxiang.jpg',
       'content': '码农人生,
       'link': 'https://bestzuo.cn'
     },
     {
       'name': '雁陎的自耕地',
-      'avatar': 'https://vip1.loli.net/2020/02/06/dVJDZ78Sg9omP5H.jpg',	  
+      'avatar': 'https://vip1.loli.net/2020/02/06/dVJDZ78Sg9omP5H.jpg',
       'content': '坐于群星之上',
       'link': 'https://www.sitstars.com/'
     },
     {
       'name': '小李的狗窝',
-      'avatar': 'https://lagoonwe.github.io/images/avatar.png?v=1581139936523',	  
+      'avatar': 'https://lagoonwe.github.io/images/avatar.png?v=1581139936523',
       'content': '一个可以py也够浪的中二晚期患者',
       'link': 'https://lagoonwe.github.io/'
     },
     {
       'name': '随遇而安',
-      'avatar': 'https://www.iszy.cc/images/avatar.png',	  
+      'avatar': 'https://www.iszy.cc/images/avatar.png',
       'content': '生活吐槽 & 学习记录',
       'link': 'https://www.iszy.cc/links/'
     },
     {
       'name': '王荣胜',
-      'avatar': 'https://s2.ax1x.com/2019/12/23/l9FdHA.md.jpg',	  
+      'avatar': 'https://s2.ax1x.com/2019/12/23/l9FdHA.md.jpg',
       'content': '可以允许不完美，但不能不做！',
       'link': 'https://sqdxwz.com'
     },
     {
       'name': '江某',
-      'avatar': '/assets/images/avatar.jpeg',	  
+      'avatar': '/assets/images/avatar.jpeg',
       'content': '热爱生活｜分享技术｜鼓捣科技',
       'link': 'https://www.debuginn.com'
     }
