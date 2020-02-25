@@ -183,7 +183,7 @@ friends:
       'content': '热爱生活｜分享技术｜鼓捣科技',
       'link': 'https://www.debuginn.com'
     }
-  ] 
+  ]
 # If true, will add site-subtitle to index page, added in jekyll config.
 # subtitle: Subtitle
 index_with_subtitle: false
