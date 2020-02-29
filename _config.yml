@@ -111,6 +111,8 @@ seo: true
 # custom Settings
 # ---------------------------------------------------------------
 
+#社交分享
+share: true
 #首先轮播图开启
 carousel:
   enable: true

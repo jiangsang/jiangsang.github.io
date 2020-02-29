@@ -420,7 +420,9 @@
         </div>
       {% endif %}
       {% endunless %}
-
+	  {% unless is_index %}
+		{% include _partials/share/social-share.html %}
+	  {% endunless %}
       {% if is_index %}
         {% assign per_page = paginator.per_page | default: site.posts.size %}
         {% assign index_modulo_per_page = forloop.index | modulo: per_page %}
