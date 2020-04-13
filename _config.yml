@@ -144,9 +144,9 @@ friends:
     },
     {
       'name': '原谅糖',
-      'avatar': 'https://blog.luhe.xyz/mylogo.png',
+      'avatar': 'https://yltang.cn/mylogo.png',
       'content': '',
-      'link': 'https://blog.luhe.xyz'
+      'link': 'https://yltang.cn'
     },
     {
       'name': 'Sanarous',
@@ -423,7 +423,7 @@ wechatpay: /assets/images/wechatpay.jpg
 
 #赞赏模块文字
 reward_comment: 觉得文章不错，赞赏站长一包辣条( •̆ ᵕ •̆ )◞ ❤
- 
+
 # Declare license on posts
 post_copyright:
   enable: true
