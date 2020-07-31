@@ -182,7 +182,7 @@ set nu
 
   [树莓派新烧入系统之后，SD卡分区大小怎么变小了？](https://www.v2ex.com/t/635916)  --V2EX
 
-  [恢复安装过树莓派相关操作系统的TF卡容量](bbs.shumeipaiba.com/thread-26-1-1.html)  --树莓派论坛
+  [恢复安装过树莓派相关操作系统的TF卡容量](http://bbs.shumeipaiba.com/thread-26-1-1.html)  --树莓派论坛
 
 贴上一个B站安装与初始化视频，未完待续~
 
