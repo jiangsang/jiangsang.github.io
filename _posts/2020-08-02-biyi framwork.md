@@ -29,6 +29,7 @@ tags:
 > ⚠️项目放在公司内部自己搭建的gitlab上，需要使用内网访问，并且有很多依赖包maven的默认配置是下不了的。需要配置maven的setting.xml文件（maven目录->conf->setting.xml），同时也替换掉C:\users\\{用户名}\\.m2下的。
 
 setting.xml ：注意修改本地仓库地址为自己的  
+
 ```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
 <!--  配置本地仓库存储地址 -->
@@ -76,7 +77,8 @@ http://xxx/repository/maven-public/
 </settings>
 ```
 
-接着打开IDE，我使用IDEA，导入项目后，修改一下项目的pom.xml文件，将其中的仓库地址改为：  
+接着打开IDE，我使用IDEA，导入项目后，修改一下项目的pom.xml文件，将其中的仓库地址改为： 
+
 ```xml
 <repositories>
   <repository>
@@ -93,9 +95,10 @@ http://xxx/repository/maven-public/
 
 1. src->main->resources->config->application-dev.yml:先新建一个新的数据库，我这里创建了一个名为biyi_base的空数据库。  
 
-    ![](http://jianger-upic.test.upcdn.net/uPic/%E6%88%AA%E5%B1%8F2020-08-11%20%E4%B8%8B%E5%8D%882.42.52.png)
+![](http://jianger-upic.test.upcdn.net/uPic/%E6%88%AA%E5%B1%8F2020-08-11%20%E4%B8%8B%E5%8D%882.42.52.png)
     
-2. src->main->resources->config->generatorConfig.xml:  
+2. src->main->resources->config->generatorConfig.xml: 
+
 ```xml
 <!--修改为自己的-->
 <jdbcConnection driverClass="com.mysql.jdbc.Driver"
@@ -104,6 +107,7 @@ http://xxx/repository/maven-public/
                 password="123456">
 </jdbcConnection>
 ```
+
 确认mysql服务已打开，此时直接点击运行，项目即可运行成功。后端展示出的页面是接口文档。
 
 #### 重要配置的理解说明
@@ -117,6 +121,7 @@ http://xxx/repository/maven-public/
 
 ### 配置部署前端项目udp6_web
 ---
+
 项目地址：  [http://xxx/udp_public/udp6_web.git](http://xxx/udp_public/udp6_web.git)
 
 首先安装好NodeJS 8，在当前目录打开终端，依次执行以下命令:  
