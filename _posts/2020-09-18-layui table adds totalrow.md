@@ -13,6 +13,10 @@ tags:
 
 废话不多说，直接上代码实现，样式是Layui官方的样子。
 
+实现思路：遍历数据表格的数组，然后计算出总数量和总价；数据表格渲染时，如果有数据内容就进行合计；
+
+数据表格被编辑就重新进行计算
+
 > 我的Layui版本：2.2.3
 
 ```javascript
@@ -134,5 +138,9 @@ table.on('edit(LAY_table_materials)', function(obj){ //注：edit是固定事件
   countSum();
 });
 ```
+
+效果：
+
+![](http://jianger-upic.test.upcdn.net/uPic/%E6%88%AA%E5%B1%8F2020-09-23%20%E4%B8%8A%E5%8D%889.08.24.png)
 
 Layui使用起来还是有很多不舒服的地方的，有时间慢慢写下来自己遇到的问题和自己怎么解决的。
