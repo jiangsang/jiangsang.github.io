@@ -141,7 +141,11 @@ npm run dev
 
 ![](http://jianger-upic.test.upcdn.net/uPic/%E6%88%AA%E5%B1%8F2020-08-11%20%E4%B8%8B%E5%8D%883.32.48.png)
 
-初始化账号：admin		密码：ctsi@123，这里卡了我半天，因为后端项目中可见的密码是加密后的，不知道是采用何种方法进行加密的，一直登录不上系统。
+初始化`账号`：admin		`密码：`ctsi@123
+
+
+
+`更新`：自己写了一个比翼框架的搭建和使用指南，有需要的可以给我留言
 
 ### 遇到的问题
 
@@ -149,9 +153,7 @@ npm run dev
     - Project Structure里确认两个地方:Project sdk以及project language level
     - Project Structure->Modules里Sources里的Language level
     - settings->java Compiler ->target bytecode Version
-    - 以上三处版本保持一致
-2. 动态路由添加失败，已存在的菜单移动有效，但自己新建的菜单不会显示。
-    - 有待解决
+    - 以上三处版本保持一
 
 ​    
 
