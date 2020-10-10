@@ -44,4 +44,4 @@ tags:
 
 浏览器在发送DNS请求时，先查看浏览器缓存是否有记录，如果没有，再查看DNS解析器是否有记录，若无接着查看本地的host文件，如无请求到达最近的（或指定的）DNS服务器，首先查看DNS缓存中是否有记录，如果仍旧没有查询到，那么DNS请求会从根服务器往下，逐级查询DNS服务器中的注册表，最终一定会在某一级中找到返回查询结果。大致流程如下图（自己画的，顺便推荐一个在线作图网址，支持流程图、思维导图、原型图、UML、网络拓扑图、组织结构图等：[https://processon.com/](https://processon.com/)
 
-![](https://article-1300776923.cos.ap-chengdu.myqcloud.com/DNS%E6%9F%A5%E8%AF%A2%E6%B5%81%E7%A8%8B.jpg)
+![](http://jianger-upic.test.upcdn.net/uPic/DNS%E6%9F%A5%E8%AF%A2%E6%B5%81%E7%A8%8B.png)
