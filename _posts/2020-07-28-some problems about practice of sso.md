@@ -3,7 +3,6 @@ layout: post
 title: SSO单点登陆实战及遇到的问题
 categories:
  - SSO
- - 分布式
 tags:
  - SSO
  - CAS
@@ -49,24 +48,36 @@ CAS是由Yale大学发起的一个企业级的、开源的项目，旨在为Web�
 
 CAS协议至少涉及三方：客户端Web浏览器，请求身份验证的Web应用程序和CAS服务器。 它也可能涉及后端服务，如数据库服务器，它没有自己的HTTP接口，但与Web应用程序进行通信。  
 
-![](http://jianger-upic.test.upcdn.net/uPic/CAS%E6%B5%81%E7%A8%8B%E5%9B%BE.jpg)
+#### CAS流程
 
-如上图所示，我们可以将认证分为两类：未登录认证和已认证。
+我们可以将认证分为两类情况：未登录CAS和已登录CAS。
 
-**未认证**：用户通过浏览器发起请求，因为未认证，发起的请求没有附带有效的sessionid信息，应用端重定向到cas服务端去验证，显然会失败，所以cas服务端会返回用户认证页面给浏览器，用户输入账号信息后认证成功后，cas服务端再重定向到应用端，并附带用户认证后的sessionid。这里就完成了图中的步骤1至4。
+**未登录**：用户通过浏览器对应用A发起请求，因为未认证，发起的请求没有附带有效的sessionid信息，应用A302重定向到cas服务端，CAS服务端返回登录表单，用户输入账号信息后，cas服务端保存用户信息TGT，对用户浏览器设置TGC，302跳转到应用A，并附带发给该应用端的ST。应用A收到请求拿着ST去服务端验证，验证成功后应用A给浏览器设置cookie并跳转到受限页面。
 
-**已认证**：紧接着，应用端将刚才获得的sessionid信息再去cas客户端进行验证，验证通过获得用户信息。这里完成了图中的步骤5至6。
+![](http://image.jianger.space/uPic/CAS%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
 
-> 以上的步骤中使用sessionid说明是为了更好理解，实际使用的类似它的封装
+**已登录**：
 
-从结构上看，CAS 包含两个部分： CAS 服务端和 CAS 客户端。CAS服务端需要独立部署，主要负责对用户的认证工作；CAS 客户端负责处理对客户端受保护资源的访问请求，需要登录时，重定向到 CAS 服务端。上图是 CAS 最基本的协议过程。
+- 如果是请求的是相同应用A，应用端通过前端请求的sessionid信息验证用户session，然后直接返回该应用下的受限页面；
+
+- 如果请求的不同应用B，应用B会302重定向到CAS服务端，服务端通过保存的TGT信息与浏览器的TGC信息进行验证，然后302重定向到应用B，并发放ST给应用B，然后应用B会拿着ST去服务端再验证，验证成功后应用B给浏览器设置cookie并跳转到受限页面。
+
+
+
+下面是官方给出的详细流程，图源：[Apereo](https://apereo.github.io/cas/4.2.x/protocol/CAS-Protocol.html)
+
+![](http://image.jianger.space/uPic/cas_flow_diagram.png)
+
+
+
+#### CAS Ticket
 
 CAS Ticket（票据），在CAS1.0和2.0中有不同的术语概念：  
 
 **CAS1.0**：
 
 - TGT：Ticket Granting Ticket，TGT是CAS为用户签发的登录票据，拥有了TGT，用户就可以证明自己在CAS成功登录过。TGT封装了Cookie值以及此Cookie值对应的用户信息。用户在CAS认证成功后，CAS生成cookie（叫TGC），写入浏览器，同时生成一个TGT对象，放入自己的缓存，TGT对象的ID就是cookie的值。当HTTP再次请求到来时，如果传过来的有CAS生成的cookie，则CAS以此cookie值为key查询缓存中有无TGT ，如果有的话，则说明用户之前登录过，如果没有，则用户需要重新登录。
-- ST：Service Ticket，ST是CAS为用户签发的访问某一service的票据。用户访问service时，service发现用户没有ST，则要求用户去CAS获取ST。用户向CAS发出获取ST的请求，如果用户的请求中包含cookie，则CAS会以此cookie值为key查询缓存中有无TGT，如果存在TGT，则用此TGT签发一个ST，返回给用户。用户凭借ST去访问service，service拿ST去CAS验证，验证通过后，允许用户访问资源。
+- ST：Service Ticket，ST是CAS为用户签发的访问某一service（应用）的票据。用户访问service时，service发现用户没有ST，则要求用户去CAS获取ST。用户向CAS发出获取ST的请求，如果用户的请求中包含cookie，则CAS会以此cookie值为key查询缓存中有无TGT，如果存在TGT，则用此TGT签发一个ST，返回给用户。用户凭借ST去访问service，service拿ST去CAS验证，验证通过后，允许用户访问资源。
 - TGC：Ticket Granting Cookie，存放用户身份认证凭证的cookie，在浏览器和CAS Server间通讯时使用，并且只能基于安全通道传输（Https），是CAS Server用来明确用户身份的凭证。
 
 **CAS2.0**：
@@ -76,18 +87,35 @@ CAS Ticket（票据），在CAS1.0和2.0中有不同的术语概念：
 - PGTIOU：Proxy Granting Ticket I Owe You，PGTIOU是CAS协议中定义的一种附加票据，它增强了传输、获取PGT的安全性。
     PGT的传输与获取的过程：Proxy Service调用CAS的serviceValidate接口验证ST成功后，CAS首先会访问pgtUrl指向的https url，将生成的 PGT及PGTIOU传输给proxy service，proxy service会以PGTIOU为key，PGT为value，将其存储在Map中；然后CAS会生成验证ST成功的xml消息，返回给Proxy Service，xml消息中含有PGTIOU，proxy service收到Xml消息后，会从中解析出PGTIOU的值，然后以其为key，在map中找出PGT的值，赋值给代表用户信息的Assertion对象的pgtId，同时在map中将其删除。
 
-**TGT、ST、PGT、PT之间关系**
+**TGT、ST，PGT、PT之间关系**
 
 1. ST是TGT签发的。用户在CAS上认证成功后，CAS生成TGT，用TGT签发一个ST，ST的ticketGrantingTicket属性值是TGT对象，然后把ST的值redirect到客户应用。
 2. PGT是ST签发的。用户凭借ST去访问Proxy service，Proxy service去CAS验证ST（同时传递PgtUrl参数给CAS），如果ST验证成功，则CAS用ST签发一个PGT，PGT对象里的ticketGrantingTicket是签发ST的TGT对象。
 3. PT是PGT签发的。Proxy service代理back-end service去CAS获取PT的时候，CAS根据传来的pgt参数，获取到PGT对象，然后调用其grantServiceTicket方法，生成一个PT对象。
 
-### CAS服务端
+> 💡：TGT用于浏览器与CAS服务端建立信任，ST既用于应用端与服务端建立信任，也用于应用端与浏览器建立信任
 
-### 实践中的问题  
+### 总结
 
-- 单点登出返回的页面仍旧显示为登陆成功的，刷新后才会跳转到cas服务端登陆页面.  
+- CAS认证鉴权仍旧使用的是浏览器cookie和服务器session的验证机制，只是封装了相关信息
+- 在统一认证平台登录后，首次访问该系统下的任一应用都需要重定向到CAS服务端去验证cookie，然后给颁发给用户ST，用户拿着ST访问应用，该应用拿到ST后还得去CAS服务端验证一遍
+- 如果用户已在统一认证平台登录，并且非首次访问该系统下的任一应用，则验证只需要在浏览器和应用端进行。-存疑
+
+#### 疑问
+
+- **为什么已经有了TGC，还需要ST？**
+
+    暂时还不知道啊
+
+- **如何避免sessionId 冲突？**
+
+    要避免冲突很简单，**在应用给前端设置的cookie 的key 上加入服务名作为前缀**，比如分别写成a_sessionId 和b_sessionId。
+
+- **假设a 与b 使用同样的单点登录认证Server，有没有可能出现a 应用登录过期，b 应用没有过期的情况？**
+
+    不会。在业务实现中，CAS Client 会定期和CAS Server 进行通信，如果用户一直在操作，那么CAS Server 就会相应延长TGC 的过期时间，最终对于a 和b 来说，**TGC 的过期时间一定是相同的**。所以哪怕两边的session 设置过期时长不一致，认证状态最多走到CAS Server 处通过TGC 的检测就能完成，而不会出现a 需要登录，b 不需要登录的情况。
 
 ### 参考资料  
 [什么是单点登录](https://zhuanlan.zhihu.com/p/66037342)	-知乎·[Java3y](https://www.zhihu.com/people/Java_3y)  
-未完待续。。。
+
+[前后端鉴权二三事](https://zhuanlan.zhihu.com/p/157324388)  - 知乎
