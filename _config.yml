@@ -195,8 +195,13 @@ friends:
       'avatar': 'https://leo-1258096517.cos.ap-shanghai.myqcloud.com/sscs/logo1.png',
       'content': '如果不能保持永恒，那就追求一刹那的光辉！',
       'link': 'https://www.sscrazy.com'
-    }
-
+    },
+	{
+	  'name': ' itsNekoDeng',
+	  'avatar': 'https://nekodeng.gitee.io/medias/avatar.jpg',
+	  'content': '一只努力学习的十万伏特皮卡丘，梦想是世界和平，想要发光发热',
+	  'link': 'https://nekodeng.gitee.io/'
+	}
   ]
 
 # If true, will add site-subtitle to index page, added in jekyll config.
