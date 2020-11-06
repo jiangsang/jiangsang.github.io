@@ -190,12 +190,6 @@ friends:
       'content': '逝者如斯夫，不舍昼夜(IT,Java,Python,量化,机器学习)',
       'link': 'https://hexo.yuanjh.cn'
     },
-   	{
-      'name': 'SSCS',
-      'avatar': 'https://leo-1258096517.cos.ap-shanghai.myqcloud.com/sscs/logo1.png',
-      'content': '如果不能保持永恒，那就追求一刹那的光辉！',
-      'link': 'https://www.sscrazy.com'
-    },
 	{
 	  'name': ' itsNekoDeng',
 	  'avatar': 'https://nekodeng.gitee.io/medias/avatar.jpg',
