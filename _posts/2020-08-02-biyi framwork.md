@@ -114,7 +114,7 @@ http://xxx/repository/maven-public/
 
 1. src->main->resources->db->changeling->xxx.xml:数据库各种表结构和数据的初始化
 2. src->main->java->com.ctsi.config->KaptchaConfig.java:可以自定义图片验证码的长度和各种样式
-3. src->main->java->com.ctsi.config->RedisConfiguration.java:
+3. src->main->java->com.ctsi.config->RedisConfiguration.java:Redis配置
 4. src->main->java->com.ctsi.config->SecurityConfiguration.java:
 5. src->main->java->com.ctsi.config->SpringMvcConfiguration.java:
 6. src->main->java->com.ctsi.config->MethodSecurityConfiguration:
