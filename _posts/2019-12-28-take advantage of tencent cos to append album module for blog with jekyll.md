@@ -274,7 +274,7 @@ tags:
    			return xmlDoc; 
    		}
    		//xmllink就是你的相册存储桶的访问域名
-   		xmllink="https://album-1300776923.cos.ap-shanghai.myqcloud.com/";
+   		xmllink="xxx";
    		xmlDoc=loadXMLDoc(xmllink);
    		var urls=xmlDoc.getElementsByTagName('Key');
    		var date=xmlDoc.getElementsByTagName('LastModified');

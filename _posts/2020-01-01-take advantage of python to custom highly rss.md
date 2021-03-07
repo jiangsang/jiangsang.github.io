@@ -60,9 +60,7 @@ headers = {
     'Accept-Language': 'zh-CN,zh;q=0.9',
     'Content-Type': 'text/html; charset=utf-8',
     'Host': 'jwc.jxnu.edu.cn',
-    'Cookie': 'ASP.NET_SessionId=0xdlujzzynq5m2gnwteyhopt;\
-   JwOAUserSettingNew2019=UserNum=VRLfbUKgQCAPo00dgIVGEQ==&UserName=dlxxDMMsdKU=\
-    &UserType=WmTb330+jk8=&UserLoginTime='+now_time
+    'Cookie': 'xxxx'+now_time
 
 }
 def setrss():
