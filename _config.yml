@@ -131,7 +131,7 @@ carousel:
     }
   ]
 #春节灯笼
-lantern: true
+lantern: false
 #友情链接
 friends:
   enable: true
