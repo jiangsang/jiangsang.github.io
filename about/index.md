@@ -21,7 +21,7 @@ type: about
 ## Contract
 
 - WeChat：Coder-Jianger
-- Email：<a href="mailto:jianger@debuginn.com">jianger@debuginn.com</a>
+- Email：<a href="mailto:liujiang@jianger.space">liujiang@jianger.space</a>
 
   
 

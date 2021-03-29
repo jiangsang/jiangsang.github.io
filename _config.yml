@@ -178,12 +178,7 @@ friends:
       'content': '可以允许不完美，但不能不做！',
       'link': 'https://sqdxwz.com'
     },
-    {
-      'name': '江某',
-      'avatar': '/assets/images/avatar.jpeg',
-      'content': '热爱生活｜分享技术｜鼓捣科技',
-      'link': 'https://www.debuginn.com'
-    },
+
     {
       'name': '闻鸡起舞',
       'avatar': 'http://hexo.yuanjh.cn/images_out/logo.jpeg',
