@@ -16,6 +16,13 @@ tags:
   <!-- more -->
 
 ### 使用时遇到的问题  
+
+#### 日期选择框不弹出
+
+日期控件绑定在输入框元素时,默认的触发事件为：focus,会有一些触发BUG,渲染时改为`trigger:'click'`即可.
+
+如果绑定的元素非输入框，则默认事件为：click
+
 #### type=“month”时的问题  
 type=“month”已经碰到几个问题了，主要是有的地方跟默认type=“date”的逻辑不一样。
 ##### 开启范围选择时change事件无效  
@@ -38,11 +45,41 @@ laydate.render({
 但change事件无效就无法限制日期范围了，虽然可以在done事件中根据日期是否符合条件渲染数据，但是一点击确定按钮新的日期就自动填充了，done里再重新赋值也不行。同时也试过自己写点击事件来限制月份不跨年，但是不生效，即使使用了如`$(document).on("click",selector,funcation(){})`这样针对动态生成元素绑定事件的方法
 
 **解决方案**
-1. 第一种方法是不使用一个日期选择框来选择日期范围，将范围选择分为两个日期选择，然后根据开始日期动态更改结束日期的选择范围，通过修改min、max值来实现，这是我的一个思路，未实践。  
-    这种方法我没有采用，因为这样选择框太多了，在这个需求里得变成四个选择框，并且在操作上连续性没那么强，如果只有一个范围选择的话可以使用。  
-2. 第二种方法就是修改laydate.js的源码了，思路如下
-    日期切换后就判断是否是同一年，不是的话就禁用确定按钮，并给出提示信息，修改代码如下，大概在源码694行（源码格式化之后）的位置添加  
+
+1. 第一种方法是不使用一个日期选择框来选择日期范围，将范围选择分为两个日期选择，然后根据开始日期动态更改结束日期的选择范围，通过修改min、max值来实现。
     
+    ```javascript
+    var startTime=laydate.render({
+        elem: '#hqsjStart'
+        ,trigger:'click'
+        ,done:function (value,date) {
+            endTime.config.min={
+                year:date.year,
+                month:date.month-1,//关键
+                date:date.date
+            };
+        }
+    });
+    var endTime=laydate.render({
+        elem: '#hqsjEnd'
+        ,trigger:'click'
+        ,done:function (value,date) {
+            startTime.config.max={
+                year:date.year,
+                month:date.month-1,//关键
+                date:date.date
+            };
+        }
+    });
+    ```
+    
+      
+    
+2. 这种方法我没有采用，因为这样选择框太多了，在这个需求里得变成四个选择框，并且在操作上连续性没那么强，如果只有一个范围选择的话可以使用。  
+
+3. 第二种方法就是修改laydate.js的源码了，思路如下
+    日期切换后就判断是否是同一年，不是的话就禁用确定按钮，并给出提示信息，修改代码如下，大概在源码694行（源码格式化之后）的位置添加  
+
     ```javascript
     }, T.prototype.setBtnStatus = function(e, t, n) {
         var a, i = this,
