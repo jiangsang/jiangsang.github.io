@@ -21,6 +21,14 @@ List翻译过来即是列表、目录之意，它是**有序、可重复的**，
 
 > 此处的有序通常指插入顺序,元素的顺序是固定的
 
+### 声明方式
+
+```java
+List<String> list=new ArrayList<String>();
+```
+
+有一个问题是为什么声明的时候通常使用List接口,而不是具体的实现接口,比如`ArrayList<String> list=new ArrayList<String>()`,其实如此声明也没有问题,但是不推荐,不够灵活,这样list只能为ArrayList的形式了.
+
 ### ArrayList
 
 ![ArrayList](https://image.jianger.space/uPic/ArrayList.png)
@@ -242,6 +250,57 @@ class Outer {
       }
   }
 ```
+
+
+
+### Vector
+
+![Vector](https://image.jianger.space/uPic/Vector.png)
+
+Vector 类实现了一个可增长的对象数组。与ArrayList类似，它可以使用整数索引(下标)访问数据,并且可以根据需要增长或缩小，这样可以在创建 Vector 之后进行添加和删除操作。它的元素是有序和可重复的，可以包含`null`,**Vector 和 ArrayList 实现了同一接口 List, 但所有的 Vector 的方法都具有 synchronized 关键修饰。因此使用Vector进行单个操作时是线程安全的,但对于复合操作，Vector 仍然需要进行同步处理,因此不能简单的说Vector是线程安全的.**
+
+#### 扩容机制
+
+```java
+protected int capacityIncrement;
+public Vector(int initialCapacity, int capacityIncrement) {
+  super();
+  if (initialCapacity < 0)
+    throw new IllegalArgumentException("Illegal Capacity: "+
+                                       initialCapacity);
+  this.elementData = new Object[initialCapacity];
+  this.capacityIncrement = capacityIncrement;
+}
+private void grow(int minCapacity) {
+    // overflow-conscious code
+    int oldCapacity = elementData.length;
+    int newCapacity = oldCapacity + ((capacityIncrement > 0) ?
+                                     capacityIncrement : oldCapacity);
+    if (newCapacity - minCapacity < 0)
+        newCapacity = minCapacity;
+    if (newCapacity - MAX_ARRAY_SIZE > 0)
+        newCapacity = hugeCapacity(minCapacity);
+    elementData = Arrays.copyOf(elementData, newCapacity);
+}
+```
+
+通过关键代码可以看到,通常情况下 `int newCapacity = oldCapacity +oldCapacity`,**即新的容量大小等于原大小的两倍.至于capacityIncrement,初始化是0的,除非new一个新的Vector时给定了增量大小的值.**
+
+### Stack
+
+![Stack](https://image.jianger.space/uPic/Stack.png)
+
+后进先出的一种队列,除了继承自Vector的方法外,还有以下几个方法可以对栈进行操作.
+
+| 独有方法                 | 描述                                                   |
+| :----------------------- | :----------------------------------------------------- |
+| `boolean empty ()`       | 判断此堆栈是否为空                                     |
+| `E peek ()`              | 获取此堆栈顶部的对象，但不将其从堆栈中移除             |
+| `E pop ()`               | 弹出此堆栈顶部的对象，并将该对象作为此函数的值返回     |
+| `E push ( E item)`       | 将一个对象推送到此堆栈顶部                             |
+| `int search ( Object o)` | 从栈顶往下查找,返回指定对象在此堆栈上的位置,没有返回-1 |
+
+Stack在实际开发中很少使用,也不被推荐,双端队列Deque有着更全面完整的功能提供.
 
 ### 参考来源
 
