@@ -25,7 +25,7 @@ tags:
 
 ### HashMap
 
-平时使用最为频繁,面试几乎必问的问题,因为它牵涉到了许多知识点,作为开发人员必须非常了解.
+平时使用最为频繁,面试几乎必问的问题,因为它牵涉到了许多知识点,作为开发人员必须非常了解.后续我还得在专门整理一篇详细的HashMap源码分析,还好多自己不是很理解😂.
 
 ![](https://image.jianger.space/uPic/HashMap.png)
 
@@ -72,13 +72,24 @@ HashMap实现了Cloneable和Serializable接口,但是这两个接口是空的,�
 
 #### 数据结构
 
-从网上找来一张图，直观展示 HashMap 结构：数组+链表+红黑树
+从网上找来一张图，直观展示 HashMap 结构：数组+链表+红黑树,不难发现,数组内的元素和链表节点都是Node<K,V>对象
 
-![HashMap](https://segmentfault.com/img/bVcO4D1)
+![HashMap](https://image.jianger.space/uPic/bVcO4D1.png)
 
 #### HashMap的扩容机制
 
-关键源码
+首先需要明白的是为什么需要扩容呢.直接固定长度,然后有冲突使用链表或者红黑树不是也可以吗.
+
+的确可以这么处理,但是这样做的话当元素很多的时候哈希冲突导致的链化会影响查询效率,而扩容操作可以缓解这一问题.
+
+**扩容时机**
+
+肯定是在put操作时需要进行扩容,分为两种情况:
+
+1. HashMap 中 put 入第一个元素，初始化数组 table。
+2. HashMap 中的元素数量大于阈值 threshold。
+
+关键源码resize()
 
 ```java
 //默认初始化容量    
@@ -245,14 +256,17 @@ final Node<K,V>[] resize() {
   @SuppressWarnings({"rawtypes","unchecked"})
   //扩容后新数组
   Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap];
-  //扩容后的数组table
+  //table指向扩容后的数组
   table = newTab;
   if (oldTab != null) {// 对oldTab中所有元素进行rehash。由于每次扩容是2次幂的扩展(指数组长度/桶数量扩为原来2倍)，所以，元素的位置要么是在原位置，要么是在原位置再移动2次幂的位置
     for (int j = 0; j < oldCap; ++j) {
       Node<K,V> e;
-      if ((e = oldTab[j]) != null) {// 数组j位置的元素不为空，需要该位置上的所有元素进行rehash
+      // 数组j位置的元素不为空，对该位置上的所有元素进行rehash
+      if ((e = oldTab[j]) != null) {
         oldTab[j] = null;
-        if (e.next == null)// 桶中只有一个元素，则直接rehash
+        // 桶中只有一个元素，则直接rehash
+        if (e.next == null)
+          //hash & (length - 1)等同hash % length,hash寻址算法
           newTab[e.hash & (newCap - 1)] = e;
         else if (e instanceof TreeNode)// 桶中是树结构
           ((TreeNode<K,V>)e).split(this, newTab, j, oldCap);
@@ -262,16 +276,22 @@ final Node<K,V>[] resize() {
           Node<K,V> loHead = null, loTail = null;
           //高位链表：存放在扩容之后的数组下标的位置为当前数组下标位置+ 扩容之前数组长度的元素
           Node<K,V> hiHead = null, hiTail = null;
+          //当前链表的一个元素
           Node<K,V> next;
           do {
             next = e.next;
-            if ((e.hash & oldCap) == 0) {// 是0的话索引没变，是1的话索引变成“原索引+oldCap”
+            // 是0的话索引没变，是1的话索引变成“原索引+oldCap”
+            if ((e.hash & oldCap) == 0) {
+              // 低位链表的链尾为空则链头指向头结点
               if (loTail == null)
-                loHead = e;// 总是指向头结点
+                loHead = e;
+              //否则链尾的下一个节点指向当前节点
               else
-                loTail.next = e;// 该操作有可能会改变原链表结构
-              loTail = e;// 总是指向下一个节点，直到尾节点
+                loTail.next = e;
+              // 最后再把链尾节点指向最后一个节点
+              loTail = e;
             }
+            //高位链表操作同理
             else {
               if (hiTail == null)
                 hiHead = e;
@@ -296,23 +316,38 @@ final Node<K,V>[] resize() {
 }
 ```
 
-可以看到，HashMap扩容分为两个步骤:1.获得新容量、新扩容阈值及新容量的空数组;2.新旧数组元素迁移;
+可以看到，HashMap扩容分为两个步骤:1.计算获得新容量、新扩容阈值及新容量的空数组;2.新旧数组元素迁移,这里才是真正的扩容操作;
 
-**步骤1又分为首次扩容和不是首次两类情况:**
+##### 计算新容量、新阈值
 
 **首次扩容**
 
 因为四个构造方法都没有对数组`table`进行初始化,在第一次put操作时才会对`table`进行初始化.
 
-- 除了`new HashMap()`,其他构造方法都对`threshold`进行了初始化,此时新容量`newCap=oldThr=threshold`
+- 除了`new HashMap()`,其他构造方法都对`threshold`进行了初始化,此时新容量`newCap=oldThr=threshold`,此时新容量不一定等于new一个HashMap指定的容量`initialCapacity`,而是与`tableSizeFor(int cap)`方法有关,它总是2的幂次方
 - 使用`new HashMap()`时`newCap=DEFAULT_INITIAL_CAPACITY=16,threshold=12`.
 
 **非首次**
 
 - 先判断旧的数组容量是否达到最大值,如果达到返回旧数组不进行后续扩容操作
-- 扩容后小于最大容量并且旧容量>=16时,新扩容阈值为旧扩容阈值的两倍,需要注意的是,不管条件是否成立,`newCap = oldCap << 1`这一赋值一定会执行.
 
-**步骤2新旧数组元素迁移:**
+- 扩容后小于最大容量并且旧容量>=16时,新扩容阈值为旧扩容阈值的两倍,需要注意的是,不管条件是否成立,`newCap = oldCap << 1`这一赋值一定会执行,即此时扩容是肯定的,此时扩容阈值如下:
+
+    ```java
+    float ft = (float)newCap * loadFactor;
+        newThr = (newCap < MAXIMUM_CAPACITY && ft < (float)MAXIMUM_CAPACITY ?
+                  (int)ft : Integer.MAX_VALUE);
+    ```
+
+    
+
+##### 数组迁移
+
+这里牵涉到hash寻址算法、高低位拆分扩容和与(&)操作等,其中高低位拆分扩容是关键.以前没看过源码的时候以为扩容就是单纯的数组扩容,然后后面多出的空位可以添加新的元素,原来不仅如此还需要对链表进行拆分并将它们重新索引到新的下标.
+
+**高低位拆分扩容**
+
+进行高低位拆分是为了降低原链表的长度,缓解哈希冲突导致的查询效率的下降.那么为什么根据`(e.hash & oldCap) 等于0或1`就可以将原先的一条链表拆分成两条,然后存储到不同数组索引下面,这点还没弄明白...
 
 
 
