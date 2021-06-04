@@ -19,7 +19,7 @@ tags:
 
 存储键值对的集合，它的键和值都是无序的(特别的,LinkedHashMap是有序的)，存储的键不可重复,值可以重复,除了HashTable其他实现类都允许null key和null value.
 
-> 此处的有序指插入顺序,元素的顺序是固定的,同样的代码执行多次结果是一致的
+> 此处的有序指插入与取出的顺序是一致的
 
 
 
@@ -355,15 +355,140 @@ final Node<K,V>[] resize() {
 
 ![](https://image.jianger.space/uPic/LinkedHashMap.png)
 
+LinkedHashMap继承自HashMap,除了重写部分方法,其他都是直接使用的HashMap的方法.相较HashMap的区别就是多了一个双向链表,**并且它是有序的,因为它的遍历是对双向链表的遍历**,因此如果需要有序的HashMap可以使用LinkedHashMap
 
+#### 数据结构
+![LinkedHashMap结构](https://image.jianger.space/uPic/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMDUwNTg2,size_16,color_FFFFFF,t_70.png)
+
+LinkedHashMap=HashMap+双向链表,每次putVal()操作时,如果添加成功都会把当前Node对象加入到双向链表中去
+
+LinkedHashMap的有序其实包括2种
+
+1. 插入顺序：很好理解，就是按插入顺序储存,当accessOrder = false时成立。
+2. 访问顺序:当accessOrder = true时,被访问的元素会放到链表的尾端，其他元素顺序不变。
+
+#### 关键源码
+
+```java
+ //头指针，指向第一个node
+transient LinkedHashMap.Entry<K,V> head;
+
+//尾指针，指向最后一个node
+transient LinkedHashMap.Entry<K,V> tail;
+
+//false为插入顺序
+//true为访问顺序,每次get操作后需要将对应节点重新放到链表的尾部
+final boolean accessOrder;
+static class Entry<K,V> extends HashMap.Node<K,V> {
+  //双向指针
+  Entry<K,V> before, after;
+  Entry(int hash, K key, V value, Node<K,V> next) {
+    super(hash, key, value, next);
+  }
+}
+protected boolean removeEldestEntry(Map.Entry<K,V> eldest) {
+  return false;
+}
+//将新增节点放到队列尾部,返回新增的节点
+//对HashMap中newNode方法的重写
+Node<K,V> newNode(int hash, K key, V value, Node<K,V> e) {
+  LinkedHashMap.Entry<K,V> p =
+    new LinkedHashMap.Entry<K,V>(hash, key, value, e);
+  linkNodeLast(p);
+  return p;
+}
+//尾插法插入p
+private void linkNodeLast(LinkedHashMap.Entry<K,V> p) {
+  //last指向原尾节点
+  LinkedHashMap.Entry<K,V> last = tail;
+  //尾插法,故首先将尾指针指向新节点p
+  tail = p;
+  //尾指针为空,此时链表是空的,头指针也指向p
+  if (last == null)
+    head = p;
+  else {
+    //正常的尾插操作,p的前驱指向原尾节点
+    p.before = last;
+    //原尾节点的后继指向p
+    last.after = p;
+  }
+}
+// unlink
+void afterNodeRemoval(Node<K,V> e) {
+  LinkedHashMap.Entry<K,V> p =
+    (LinkedHashMap.Entry<K,V>)e, b = p.before, a = p.after;
+  p.before = p.after = null;
+  if (b == null)
+    head = a;
+  else
+    b.after = a;
+  if (a == null)
+    tail = b;
+  else
+    a.before = b;
+}
+// possibly remove eldest
+void afterNodeInsertion(boolean evict) {
+  LinkedHashMap.Entry<K,V> first;
+  //removeEldestEntry(first)默认返回false，所以afterNodeInsertion这个方法其实并不会执行
+  if (evict && (first = head) != null && removeEldestEntry(first)) {
+    K key = first.key;
+    removeNode(hash(key), key, null, false, true);
+  }
+}
+// hashmap的putVal方法，最后如果不是新增节点，而是对已经存在节点进行修改，调用afterNodeAccess
+// 如果是新增节点，会调用linkedhashmap的newNode方法，里面将新增节点放到队列尾部
+// linkedhashmap的get方法，最后如果为访问顺序，调用afterNodeAccess
+void afterNodeAccess(Node<K,V> e) {
+  LinkedHashMap.Entry<K,V> last;
+  // accessOrder = true 时 访问节点后才需要置于尾端
+// 如果e本身就在尾端，那就不需要操作
+  if (accessOrder && (last = tail) != e) {
+    //p指向e,b指向p的前驱,a指向p的后继
+    LinkedHashMap.Entry<K,V> p =
+      (LinkedHashMap.Entry<K,V>)e, b = p.before, a = p.after;
+    //p的后继置null
+    p.after = null;
+    //b为null表示p是头节点,将head头指针指向a即p的后继
+    if (b == null)
+      head = a;
+    //p不是头节点,将b的后继指向a
+    else
+      b.after = a;
+    //p的后继a不为空,p不是尾节点,a的前驱指向b
+    if (a != null)
+      a.before = b;
+    else
+      last = b;
+    if (last == null)
+      head = p;
+    else {
+      p.before = last;
+      last.after = p;
+    }
+    tail = p;
+    ++modCount;
+  }
+}
+```
+
+LinkedHashMap并没有重写`putVal()`方法,而是重写了`afterNodeInsertion()`、`afterNodeAccess()`和`afterNodeRemoval()`方法,这三个方法在HashMap中是空的.
+
+#### 访问顺序的遍历问题
+
+**所有集合在迭代器模式中遍历输出时是不允许修改集合结构的**，也就是说LinkedHashMap在迭代遍历时同其他集合一样无法使用remove、put这种改变链表长度的方法
+
+由于访问顺序的特殊性,每次有get操作获取元素时,被访问的元素会放到链表的尾端,因此LinkedHashMap在这种模式下迭代遍历时不能使用get方法,这样会改变了链表的结构，会抛出`ConcurrentModificationException`异常.
+
+![image-20210604151205225](https://image.jianger.space/uPic/image-20210604151205225.png)
 
 ### TreeMap
 
-### SortedMap
+![TreeMap](https://image.jianger.space/uPic/TreeMap.png)
 
 ### HashTable
 
-
+![Hashtable](https://image.jianger.space/uPic/Hashtable.png)
 
 ### 参考来源
 

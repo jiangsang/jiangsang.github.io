@@ -19,7 +19,7 @@ tags:
 
 List翻译过来即是列表、目录之意，它是**有序、可重复的**，其逻辑结构分为线性和非线性，线性的有ArrayList数组列表，非线性的有LinkedList链表。因此ArrayList适合查询，删除和增加操作复杂度较高，而链表恰恰相反，适用于删除和增加操作较多的场景，它只需要变动删除元素前后两个元素。
 
-> 此处的有序通常指插入顺序,元素的顺序是固定的
+> 此处的有序指插入与取出的顺序是一致的
 
 ### 声明方式
 
@@ -40,7 +40,7 @@ List<String> list=new ArrayList<String>();
 | 修饰符和类型         | 方法和描述                                                   |
 | :------------------- | :----------------------------------------------------------- |
 | `boolean`            | `add ( E e)`将指定的元素添加到列表的末尾                     |
-| `void`               | `add (int index, E element)`将指定的元素插入到此列表中的指定位置 |
+| `void`               | `add (int index, E element)`将指定的元素插入到此列表中的指定位置,**不会覆盖** |
 | `boolean`            | `addAll ( Collection <? extends E > c)`将指定集合中的所有元素按指定集合的 Iterator 返回的顺序追加到此列表的末尾 |
 | `boolean`            | `addAll (int index, Collection <? extends E > c)`从指定位置开始，将指定集合中的所有元素插入到此列表中 |
 | `void`               | `clear ()`从此列表中移除所有元素                             |
@@ -72,6 +72,23 @@ List<String> list=new ArrayList<String>();
 | `void`               | `trimToSize ()`调整这个的实例的容量为列表的当前大小          |
 
 使用add方法可以将元素添加到数组列表中，可以指定位置或者添加到末尾，最终，数组的全部空间有可能被用尽。这就显现出数组列表的操作魅力：如果调用add且内部数组已经满了，数组列表就将自动地创建一个更大的数组，并将所有的对象从较小的数组中拷贝到较大的数组中。那么，具体是怎么实现的呢？这里就涉及到ArrayList的扩容机制了.
+
+#### 容易混淆的remove()方法
+
+List接口有两个remove操作:
+- 根据索引index删除指定元素remove(int index),返回值是删除的对象
+- 根据Object对象删除remove(Object o),返回值是boolean
+
+一种容易出错的情况是:  
+需要删除一个元素为int a=1,此时使用remove(1)方法其实是删除了索引为1的元素,而不是内容为1的元素,因为int不是对象,这在使用时容易忽略.
+
+若想使用remove(Object o)方法，需要这样操作 
+
+```java
+int a=1;
+Integer one = a; 
+list.remove(one);
+```
 
 #### ArrayList的扩容机制
 
@@ -306,4 +323,5 @@ Stack在实际开发中很少使用,也不被推荐,双端队列Deque有着更�
 
 -   阿里巴巴Java开发手册
 -   Java核心技术第10版
+-   [java内部类有什么作用？](https://www.zhihu.com/question/26954130/answer/708467570)
 
