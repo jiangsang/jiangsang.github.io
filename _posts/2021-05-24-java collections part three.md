@@ -76,39 +76,39 @@ HashMap实现了Cloneable和Serializable接口,但是这两个接口是空的,�
 
 #### HashMap的扩容机制
 
-首先需要明白的是为什么需要扩容呢.直接固定长度,然后有冲突使用链表或者红黑树不是也可以吗.
+首先需要明白的是为什么需要扩容呢.直接固定数组长度,然后有冲突使用链表或者红黑树不是也可以吗.
 
-的确可以这么处理,但是这样做的话当元素很多的时候哈希冲突导致的链化会影响查询效率,而扩容操作可以缓解这一问题.
+的确可以这么处理,但是这样做的话当元素很多的时候哈希冲突导致的链化会影响查询效率,而扩容操作可以极大缓解这一问题.为了减少频繁扩容操作导致的效率问题,通常是建议初始化时传入容量参数的.
 
 **扩容时机**
 
 肯定是在put操作时需要进行扩容,分为两种情况:
 
-1. HashMap 中 put 入第一个元素，初始化数组 table。
+1. HashMap 中 put 第一个元素，初始化数组 table。
 2. HashMap 中的元素数量大于阈值 threshold。
 
 关键源码resize()
 
 ```java
-//默认初始化容量    
+//默认容量    
 static final int DEFAULT_INITIAL_CAPACITY = 1 << 4; // aka 16
 //最大容量,即2^30
 static final int MAXIMUM_CAPACITY = 1 << 30;
-//默认加载因子
+//默认负载因子
 static final float DEFAULT_LOAD_FACTOR = 0.75f;
-//链表转为红黑树的阈值
+//链表转为红黑树的链表阈值
 static final int TREEIFY_THRESHOLD = 8;
 //红黑树转为链表的阈值
 static final int UNTREEIFY_THRESHOLD = 6;
-
+//链表转为红黑树的数组容量阈值
 static final int MIN_TREEIFY_CAPACITY = 64;
 //数组扩容阈值,即出发扩容的大小
 int threshold;
-//加载因子
+//负载因子
 final float loadFactor;
 //元素数组table,transient表示该数组不序列化
 transient Node<K,V>[] table;
-//元素对象,静态内部类
+//静态内部类Node<K,V>,HashMap关键数据结构
 static class Node<K,V> implements Map.Entry<K,V> {
   final int hash;
   final K key;
@@ -146,64 +146,6 @@ static class Node<K,V> implements Map.Entry<K,V> {
         return true;
     }
     return false;
-  }
-}
-/** 这个方法在HashMap进行扩容时会调用到,((TreeNode<K,V>)e).split(this, newTab, j, oldCap);
-  * @param map 代表要扩容的HashMap
-  * @param tab 代表新创建的数组，用来存放旧数组迁移的数据
-  * @param index 代表旧数组的索引
-  * @param bit 代表旧数组的长度，需要配合使用来做按位与运算
-  */
-final void split(HashMap<K,V> map, Node<K,V>[] tab, int index, int bit) {
-  TreeNode<K,V> b = this;
-  //设置低位首节点和低位尾节点
-  TreeNode<K,V> loHead = null, loTail = null;
-  //设置高位首节点和高位尾节点
-  TreeNode<K,V> hiHead = null, hiTail = null;
-  //定义两个变量lc和hc，初始值为0，后面比较要用，他们的大小决定了红黑树是否要转回链表
-  int lc = 0, hc = 0;
-  //遍历红黑树
-  for (TreeNode<K,V> e = b, next; e != null; e = next) {
-    //取e的下一节点赋值给next遍历
-    next = (TreeNode<K,V>)e.next;
-    //取好e的下一节点后，把它赋值为空，方便GC回收
-    e.next = null;
-    if ((e.hash & bit) == 0) {
-      //
-      if ((e.prev = loTail) == null)
-        loHead = e;
-      else
-        loTail.next = e;
-      loTail = e;
-      ++lc;
-    }
-    else {
-      if ((e.prev = hiTail) == null)
-        hiHead = e;
-      else
-        hiTail.next = e;
-      hiTail = e;
-      ++hc;
-    }
-  }
-
-  if (loHead != null) {
-    if (lc <= UNTREEIFY_THRESHOLD)
-      tab[index] = loHead.untreeify(map);
-    else {
-      tab[index] = loHead;
-      if (hiHead != null) // (else is already treeified)
-        loHead.treeify(tab);
-    }
-  }
-  if (hiHead != null) {
-    if (hc <= UNTREEIFY_THRESHOLD)
-      tab[index + bit] = hiHead.untreeify(map);
-    else {
-      tab[index + bit] = hiHead;
-      if (loHead != null)
-        hiHead.treeify(tab);
-    }
   }
 }
 //扩容关键代码
@@ -315,25 +257,116 @@ final Node<K,V>[] resize() {
 ```
 
 可以看到，HashMap扩容分为两个步骤:1.计算获得新容量、新扩容阈值及新容量的空数组;2.新旧数组元素迁移,这里才是真正的扩容操作;
+看完源代码几个问题萦绕心头:  
+
+1. 为什么Node数组和阈值初始化不是放在构造函数里而是放在了扩容方法resize()里实现?
+   JDK1.8之前倒是直接在构造函数里初始化的,那么这里改动了肯定有优化的考量,具体是为什么呢,还在寻找答案...
+
+2. 正常的扩容翻倍操作中为什么要加如下判断才进行阈值的翻倍?
+
+```java
+else if ((newCap = oldCap << 1) < MAXIMUM_CAPACITY &&
+         oldCap >= DEFAULT_INITIAL_CAPACITY)//扩容后小于最大容量并且旧容量>=16
+  newThr = oldThr << 1; // 新阈值为旧阈值的两倍
+```
+
+要知道该条件无论是否成立`newCap = oldCap << 1`都会执行的,`(newCap = oldCap << 1) < MAXIMUM_CAPACITY`在绝大部分情况都会成立,那么需要思考的就是增加`oldCap >= DEFAULT_INITIAL_CAPACITY`这一条件的原因.
+
+经过实践发现:
+
+```java
+public static void main(String[] args) {
+  HashMap map=new HashMap(2);
+  map.put("1",2);
+  map.put("2",3);
+}
+```
+
+- 初始化后扩容阈值threshold=2,首次put操作扩容后容量为newCap=2,threshold=1,然后添加第一个元素,size=1.
+- 添加完第二个元素,size=2,2>threshold(1)触发扩容,如果没加`oldCap >= DEFAULT_INITIAL_CAPACITY`判断新容量newCap=2<<1=4,阈值threshold=1<<1=2,**这跟容量*负载因子=阈值是不相符的**.
+- 那在这里直接newThr=(float)newCap * loadFactor不好吗,为什么还得放在newThr == 0时进行处理,初步理解是为了减少代码量,并且直接在原阈值的基础上使用位移操作比乘法计算效率是更高的.
+
+以上是自己思考的结果,无法确定是否完全正确😂
 
 ##### 计算新容量、新阈值
 
 **首次扩容**
 因为四个构造方法都没有对数组`table`进行初始化,在第一次put操作时才会对`table`进行初始化.
-- 除了`new HashMap()`,其他构造方法都对`threshold`进行了初始化,此时新容量`newCap=oldThr=threshold`,此时新容量不一定等于new一个HashMap指定的容量`initialCapacity`,而是与`tableSizeFor(int cap)`方法有关,它总是2的幂次方
+
+- 除了`new HashMap()`,其他构造方法都对`threshold`进行了初始化,此时新容量`newCap=oldThr=threshold`,此时新容量不一定等于new一个HashMap指定的容量`initialCapacity`,而是与`tableSizeFor(int cap)`方法有关,它总是2的幂次方,新阈值`threshold=newCap*loadFactor`
 - 使用`new HashMap()`时`newCap=DEFAULT_INITIAL_CAPACITY=16,threshold=12`.
 
 **非首次**
+
 - 先判断旧的数组容量是否达到最大值,如果达到返回旧数组不进行后续扩容操作
-- 扩容后小于最大容量并且旧容量>=16时,新扩容阈值为旧扩容阈值的两倍,需要注意的是,不管条件是否成立,`newCap = oldCap << 1`这一赋值一定会执行,即此时扩容是肯定的,此时扩容阈值如下:
+- 扩容后小于最大容量并且旧容量>=16时,新扩容阈值为旧扩容阈值的两倍,需要注意的是,不管条件是否成立,`newCap = oldCap << 1`这一赋值一定会执行,即此时扩容是肯定的,条件不成立时新扩容阈值如下:
 
     ```java
-    float ft = (float)newCap * loadFactor;
-    newThr = (newCap < MAXIMUM_CAPACITY && ft < (float)MAXIMUM_CAPACITY ?
-              (int)ft : Integer.MAX_VALUE);
+    if (newThr == 0) {
+      float ft = (float)newCap * loadFactor;
+      newThr = (newCap < MAXIMUM_CAPACITY && ft < (float)MAXIMUM_CAPACITY ?
+                (int)ft : Integer.MAX_VALUE);
+    }
     ```
 
 ##### 数组迁移
+
+```java
+// 对oldTab中所有元素进行rehash。由于每次扩容是2次幂的扩展(指数组长度/桶数量扩为原来2倍)，所以，元素的位置要么是在原位置，要么是在原位置再移动2次幂的位置
+for (int j = 0; j < oldCap; ++j) {
+  Node<K,V> e;
+  // 数组j位置的元素不为空，对该位置上的所有元素进行rehash
+  if ((e = oldTab[j]) != null) {
+    oldTab[j] = null;
+    // 桶中只有一个元素，则直接rehash
+    if (e.next == null)
+      //hash & (length - 1)等同hash % length,hash寻址算法
+      newTab[e.hash & (newCap - 1)] = e;
+    else if (e instanceof TreeNode)// 桶中是树结构
+      ((TreeNode<K,V>)e).split(this, newTab, j, oldCap);
+    //桶中是链表结构（JDK1.7中旧链表迁移新链表的时候，用的是头插法，如果在新表的数组索引位置相同，则链表元素会倒置；但是JDK1.8不会倒置，用的是双指针）
+    else {
+      // 低位链表：存放在扩容之后的数组下标的位置，与当前数组下标位置一致的元素
+      Node<K,V> loHead = null, loTail = null;
+      //高位链表：存放在扩容之后的数组下标的位置为当前数组下标位置+ 扩容之前数组长度的元素
+      Node<K,V> hiHead = null, hiTail = null;
+      //当前链表的一个元素
+      Node<K,V> next;
+      do {
+        next = e.next;
+        // 是0的话索引没变，是1的话索引变成“原索引+oldCap”
+        if ((e.hash & oldCap) == 0) {
+          // 低位链表的链尾为空则链头指向头结点
+          if (loTail == null)
+            loHead = e;
+          //否则链尾的下一个节点指向当前节点
+          else
+            loTail.next = e;
+          // 最后再把链尾节点指向最后一个节点
+          loTail = e;
+        }
+        //高位链表操作同理
+        else {
+          if (hiTail == null)
+            hiHead = e;
+          else
+            hiTail.next = e;
+          hiTail = e;
+        }
+      } while ((e = next) != null);
+      if (loTail != null) {
+        loTail.next = null;
+        newTab[j] = loHead;// 原索引
+      }
+      if (hiTail != null) {
+        hiTail.next = null;
+        newTab[j + oldCap] = hiHead;// 原索引+oldCap
+      }
+    }
+  }
+}
+```
+
 这里牵涉到hash寻址算法、高低位拆分扩容和与(&)操作等,其中高低位拆分扩容是关键.以前没看过源码的时候以为扩容就是单纯的数组扩容,然后后面多出的空位可以添加新的元素,原来不仅如此还需要对链表进行拆分并将它们重新索引到新的下标.
 
 **高低位拆分扩容**
@@ -764,6 +797,14 @@ TreeMap treeMap = new TreeMap(comparator);
 ### HashTable
 
 ![Hashtable](https://image.jianger.space/uPic/Hashtable.png)
+
+Hashtable是遗留类，很多映射的常用功能与HashMap类似，**不同的是它承自Dictionary类，并且是线程安全的**，任一时间只有一个线程能写Hashtable，**并发性不如ConcurrentHashMap，因为ConcurrentHashMap引入了分段锁**。Hashtable不建议在新代码中使用，不需要线程安全的场合可以用HashMap替换，需要线程安全的场合可以用ConcurrentHashMap替换.
+
+### ConcurrentHashMap
+
+![ConcurrentHashMap](https://image.jianger.space/uPic/ConcurrentHashMap.png)
+
+
 
 ### 参考来源
 
