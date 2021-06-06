@@ -21,8 +21,6 @@ tags:
 
 > 此处的有序指插入与取出的顺序是一致的
 
-
-
 ### HashMap
 
 平时使用最为频繁,面试几乎必问的问题,因为它牵涉到了许多知识点,作为开发人员必须非常了解.后续我还得在专门整理一篇详细的HashMap源码分析,还好多自己不是很理解😂.
@@ -321,34 +319,25 @@ final Node<K,V>[] resize() {
 ##### 计算新容量、新阈值
 
 **首次扩容**
-
 因为四个构造方法都没有对数组`table`进行初始化,在第一次put操作时才会对`table`进行初始化.
-
 - 除了`new HashMap()`,其他构造方法都对`threshold`进行了初始化,此时新容量`newCap=oldThr=threshold`,此时新容量不一定等于new一个HashMap指定的容量`initialCapacity`,而是与`tableSizeFor(int cap)`方法有关,它总是2的幂次方
 - 使用`new HashMap()`时`newCap=DEFAULT_INITIAL_CAPACITY=16,threshold=12`.
 
 **非首次**
-
 - 先判断旧的数组容量是否达到最大值,如果达到返回旧数组不进行后续扩容操作
-
 - 扩容后小于最大容量并且旧容量>=16时,新扩容阈值为旧扩容阈值的两倍,需要注意的是,不管条件是否成立,`newCap = oldCap << 1`这一赋值一定会执行,即此时扩容是肯定的,此时扩容阈值如下:
 
     ```java
     float ft = (float)newCap * loadFactor;
-        newThr = (newCap < MAXIMUM_CAPACITY && ft < (float)MAXIMUM_CAPACITY ?
-                  (int)ft : Integer.MAX_VALUE);
+    newThr = (newCap < MAXIMUM_CAPACITY && ft < (float)MAXIMUM_CAPACITY ?
+              (int)ft : Integer.MAX_VALUE);
     ```
 
-    
-
 ##### 数组迁移
-
 这里牵涉到hash寻址算法、高低位拆分扩容和与(&)操作等,其中高低位拆分扩容是关键.以前没看过源码的时候以为扩容就是单纯的数组扩容,然后后面多出的空位可以添加新的元素,原来不仅如此还需要对链表进行拆分并将它们重新索引到新的下标.
 
 **高低位拆分扩容**
-
 进行高低位拆分是为了降低原链表的长度,缓解哈希冲突导致的查询效率的下降.那么为什么根据`(e.hash & oldCap) 等于0或1`就可以将原先的一条链表拆分成两条,然后存储到不同数组索引下面,这点还没弄明白...
-
 
 
 ### LinkedHashMap
@@ -360,9 +349,8 @@ LinkedHashMap继承自HashMap,除了重写部分方法,其他都是直接使用�
 #### 数据结构
 ![LinkedHashMap结构](https://image.jianger.space/uPic/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMDUwNTg2,size_16,color_FFFFFF,t_70.png)
 
-LinkedHashMap=HashMap+双向链表,每次putVal()操作时,如果添加成功都会把当前Node对象加入到双向链表中去
-
-LinkedHashMap的有序其实包括2种
+LinkedHashMap=HashMap+双向链表,每次putVal()操作时,如果添加成功都会把当前Node对象加入到双向链表中去  
+LinkedHashMap的有序其实包括2种:  
 
 1. 插入顺序：很好理解，就是按插入顺序储存,当accessOrder = false时成立。
 2. 访问顺序:当accessOrder = true时,被访问的元素会放到链表的尾端，其他元素顺序不变。
@@ -486,6 +474,293 @@ LinkedHashMap并没有重写`putVal()`方法,而是重写了`afterNodeInsertion(
 
 ![TreeMap](https://image.jianger.space/uPic/TreeMap.png)
 
+可以看到TreeMap与其他实现类相比多出了一个实现的接口`NavigableMap`,并且它继承自`SortedMap`接口.**TreeMap不允许null key(未自定义比较器并对null处理),允许重复的null value**,由于其底层数据结构是一颗平衡二叉查找树(红黑树),因此它是有序的(**默认根据key自然排序**),同样它是非线程安全的.  
+
+#### 数据结构
+
+TreeMap的底层数据结构是红黑树,红黑树是一种平衡二叉搜索树.
+
+```java
+private static final boolean RED   = false;
+private static final boolean BLACK = true;
+static final class Entry<K,V> implements Map.Entry<K,V> {
+  K key;
+  V value;
+  Entry<K,V> left;
+  Entry<K,V> right;
+  Entry<K,V> parent;
+  boolean color = BLACK;
+}
+```
+
+#### 添加节点
+
+```java
+private final Comparator<? super K> comparator;
+
+private transient Entry<K,V> root;
+
+private transient int size = 0;
+
+private transient int modCount = 0;
+
+@SuppressWarnings("unchecked")
+final int compare(Object k1, Object k2) {
+  return comparator==null ? ((Comparable<? super K>)k1).compareTo((K)k2)
+    : comparator.compare((K)k1, (K)k2);
+}
+//数据插入
+public V put(K key, V value) {
+  //t指向根节点
+  Entry<K,V> t = root;
+  //首次插入根节点是null
+  if (t == null) {
+    //判断是否传入了比较器或者key实现了Comparable接口
+    compare(key, key); // type (and possibly null) check
+		//根节点赋值
+    root = new Entry<>(key, value, null);
+    size = 1;
+    modCount++;
+    return null;
+  }
+  int cmp;
+  Entry<K,V> parent;
+  // split comparator and comparable paths
+  Comparator<? super K> cpr = comparator;
+  //new TreeMap的时候传入了自定义比较器
+  if (cpr != null) {
+    //从根节点开始循环遍历
+    do {
+      parent = t;
+      //key和t.key比较
+      cmp = cpr.compare(key, t.key);
+      //key小于t的key,t指向左子树的根节点
+      if (cmp < 0)
+        t = t.left;
+      //key大于t的key,t指向右子树的根节点
+      else if (cmp > 0)
+        t = t.right;
+      else
+        //找到相同key的节点,覆盖value值
+        return t.setValue(value);
+    } while (t != null);
+  }
+  //new TreeMap的时候没传入了自定义比较器
+  else {
+    //key为null时抛出异常
+    if (key == null)
+      throw new NullPointerException();
+    @SuppressWarnings("unchecked")
+    //实现了Comparable接口的类进行强转,未实现的会抛出异常
+    Comparable<? super K> k = (Comparable<? super K>) key;
+    do {
+      parent = t;
+      cmp = k.compareTo(t.key);
+      //key小于t的key,t指向左子树的根节点
+      if (cmp < 0)
+        t = t.left;
+      //key大于t的key,t指向右子树的根节点
+      else if (cmp > 0)
+        t = t.right;
+      else
+        //找到相同key的节点,覆盖value值
+        return t.setValue(value);
+    } while (t != null);
+  }
+  //遍历完之后如果没有遇到相同key的情况
+  //构造一个 父指针指向最后一个遍历到的节点 的新节点
+  Entry<K,V> e = new Entry<>(key, value, parent);
+  //再根据新节点与父节点的比较给父节点的左指针或者右指针赋值
+  if (cmp < 0)
+    parent.left = e;
+  else
+    parent.right = e;
+  //最后进行红黑树的调整
+  fixAfterInsertion(e);
+  size++;
+  modCount++;
+  return null;
+}
+```
+
+根据源码可以看出,put操作分为插入数据和调整红黑树两步.
+##### 插入数据
+分为两种情况:
+- 一种是树为空,直接把新节点赋值给根节点就行
+- 另一种是树非空,则需要循环遍历树中的节点,将新插入的key与其比较,比它小往左子树走,比它大往右子树走,若相等则覆盖原先的value值;遍历完成后若没有相同key的情况,将新节点插入到最后遍历到的那个节点的左边或者右边.不难发现,新节点的一定是插入到原先叶子节点上的.
+- 特别的,在进行元素的比较时有两种情况:
+  1. 传入了自定义比较器,使用比较器重写的compare方法
+  2. 未传入比较器时先判断key是否为null,是的话直接抛出异常,否则将key强转成Comparable对象,未实现Comparable接口的对象会抛出异常.
+
+##### 调整红黑树
+
+```java
+//获取节点颜色
+private static <K,V> boolean colorOf(Entry<K,V> p) {
+  return (p == null ? BLACK : p.color);
+}
+//父节点
+private static <K,V> Entry<K,V> parentOf(Entry<K,V> p) {
+  return (p == null ? null: p.parent);
+}
+//设置节点颜色
+private static <K,V> void setColor(Entry<K,V> p, boolean c) {
+  if (p != null)
+    p.color = c;
+}
+//左节点
+private static <K,V> Entry<K,V> leftOf(Entry<K,V> p) {
+  return (p == null) ? null: p.left;
+}
+//右节点
+private static <K,V> Entry<K,V> rightOf(Entry<K,V> p) {
+  return (p == null) ? null: p.right;
+}
+
+//左旋转
+private void rotateLeft(Entry<K,V> p) {
+  if (p != null) {
+    Entry<K,V> r = p.right;
+    p.right = r.left;
+    if (r.left != null)
+      r.left.parent = p;
+    r.parent = p.parent;
+    if (p.parent == null)
+      root = r;
+    else if (p.parent.left == p)
+      p.parent.left = r;
+    else
+      p.parent.right = r;
+    r.left = p;
+    p.parent = r;
+  }
+}
+
+//右旋转
+private void rotateRight(Entry<K,V> p) {
+  if (p != null) {
+    Entry<K,V> l = p.left;
+    p.left = l.right;
+    if (l.right != null) l.right.parent = p;
+    l.parent = p.parent;
+    if (p.parent == null)
+      root = l;
+    else if (p.parent.right == p)
+      p.parent.right = l;
+    else p.parent.left = l;
+    l.right = p;
+    p.parent = l;
+  }
+}
+
+/** From CLR */
+private void fixAfterInsertion(Entry<K,V> x) {
+  x.color = RED;
+	//x不为null不为根节点并且x的父节点为红色就一直从下往上遍历调整
+  while (x != null && x != root && x.parent.color == RED) {
+    //x插入左子节点
+    if (parentOf(x) == leftOf(parentOf(parentOf(x)))) {
+      //获取x的叔父节点
+      Entry<K,V> y = rightOf(parentOf(parentOf(x)));
+      //如果叔父节点是红色
+      if (colorOf(y) == RED) {
+        //x的父节点着色为黑色
+        setColor(parentOf(x), BLACK);
+        //x的叔父节点着色为黑色
+        setColor(y, BLACK);
+        //x的祖父节点着色为红色
+        setColor(parentOf(parentOf(x)), RED);
+        //x赋值为祖父节点
+        x = parentOf(parentOf(x));
+        //如果叔父节点是黑色
+      } else {
+        //判断x是否插入左子节点的右边
+        if (x == rightOf(parentOf(x))) {
+          x = parentOf(x);
+          //对x的父节点进行一次左旋
+          rotateLeft(x);
+        }
+        //父节点着色为黑
+        setColor(parentOf(x), BLACK);
+        //祖父节点着色为红
+        setColor(parentOf(parentOf(x)), RED);
+        //对祖父节点进行一次右旋
+        rotateRight(parentOf(parentOf(x)));
+      }
+      //x插入右子节点,流程同上
+    } else 
+      Entry<K,V> y = leftOf(parentOf(parentOf(x)));
+      if (colorOf(y) == RED) {
+        setColor(parentOf(x), BLACK);
+        setColor(y, BLACK);
+        setColor(parentOf(parentOf(x)), RED);
+        x = parentOf(parentOf(x));
+      } else {
+        if (x == leftOf(parentOf(x))) {
+          x = parentOf(x);
+          rotateRight(x);
+        }
+        setColor(parentOf(x), BLACK);
+        setColor(parentOf(parentOf(x)), RED);
+        rotateLeft(parentOf(parentOf(x)));
+      }
+    }
+  }
+  root.color = BLACK;
+}
+```
+
+
+
+#### 自然排序
+Comparable接口强行对实现它的每个类的对象进行整体排序。这种排序被称为类的自然排序  
+例如String实现了Comparable接口,可以看到它会逐个字符比较,负数表示小于,正数表示大于,0为相等. 如果key是自定义的类,既没有实现Comparable接口,也没有传入比较器,TreeMap是无法添加的.
+
+```java
+public final class String
+    implements java.io.Serializable, Comparable<String>, CharSequence{
+  
+  public int compareTo(String anotherString) {
+    int len1 = value.length;
+    int len2 = anotherString.value.length;
+    int lim = Math.min(len1, len2);
+    char v1[] = value;
+    char v2[] = anotherString.value;
+
+    int k = 0;
+    while (k < lim) {
+      char c1 = v1[k];
+      char c2 = v2[k];
+      if (c1 != c2) {
+        return c1 - c2;
+      }
+      k++;
+    }
+    return len1 - len2;
+  }
+}
+```
+
+#### 定制排序
+
+那么如果不想使用上面那种排序比较方式呢,比如我想小于的时候返回正数,反之返回负数,如果是自己写的类还好,随便怎么实现Comparable接口,像String这种写好的类呢,方法也是有的,定义一个Comparator比较器,声明新TreeMap时将这个定制器作为参数传入即可.
+
+```java
+Comparator comparator = (o1, o2) -> {
+  if(o1 instanceof String && o1 instanceof String) {
+    String p = (String)o1;
+    String p2 = (String)o2;
+    //逆序
+    return -p.compareTo(p2);
+  }
+  throw new RuntimeException("输入的参数不符合要求");
+};
+
+TreeMap treeMap = new TreeMap(comparator);
+```
+
+
+
 ### HashTable
 
 ![Hashtable](https://image.jianger.space/uPic/Hashtable.png)
@@ -495,4 +770,5 @@ LinkedHashMap并没有重写`putVal()`方法,而是重写了`afterNodeInsertion(
 -    [阅读 JDK 源码：HashMap 扩容总结及图解 - SegmentFault 思否](https://segmentfault.com/a/1190000039302830) 
 -    [Java面试必问之Hashmap底层实现原理(JDK1.8) - SegmentFault 思否](https://segmentfault.com/a/1190000021928659?utm_source=sf-similar-article) 
 -     [HashMap-split()方法源码简读(JDK1.8)_绅士jiejie的博客-CSDN博客_hashmap split](https://blog.csdn.net/weixin_38106322/article/details/104422422) 
+-      [Java 8系列之重新认识HashMap - 知乎](https://zhuanlan.zhihu.com/p/21673805) 
 
