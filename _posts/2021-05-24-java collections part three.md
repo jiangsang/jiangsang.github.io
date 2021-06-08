@@ -804,7 +804,7 @@ Hashtable是遗留类，很多映射的常用功能与HashMap类似，**不同�
 
 ![ConcurrentHashMap](https://image.jianger.space/uPic/ConcurrentHashMap.png)
 
-ConcurrentHashMap不允许null key和null value,它使用synachronized关键字实现了现场安全,数据结构与HashMap一样,都是数组+链表+红黑树.因此如果要使用线程安全的HashMap,一般使用这个
+ConcurrentHashMap不允许null key和null value,它使用synachronized关键字+CAS实现了现场安全,数据结构与HashMap一样,都是数组+链表+红黑树.因此如果要使用线程安全的HashMap,一般使用这个
 
 ### 参考来源
 
