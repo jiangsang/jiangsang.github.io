@@ -798,13 +798,13 @@ TreeMap treeMap = new TreeMap(comparator);
 
 ![Hashtable](https://image.jianger.space/uPic/Hashtable.png)
 
-Hashtable是遗留类，很多映射的常用功能与HashMap类似，**不同的是它承自Dictionary类，并且是线程安全的**，任一时间只有一个线程能写Hashtable，**并发性不如ConcurrentHashMap，因为ConcurrentHashMap引入了分段锁**。Hashtable不建议在新代码中使用，不需要线程安全的场合可以用HashMap替换，需要线程安全的场合可以用ConcurrentHashMap替换.
+Hashtable是遗留类，很多映射的常用功能与HashMap类似，**不同的是它承自Dictionary类，底层结构是数组+链表,并且是线程安全的**，任一时间只有一个线程能写Hashtable，并发性不如ConcurrentHashMap。Hashtable不建议在新代码中使用，不需要线程安全的场合可以用HashMap替换，需要线程安全的场合可以用ConcurrentHashMap替换.
 
 ### ConcurrentHashMap
 
 ![ConcurrentHashMap](https://image.jianger.space/uPic/ConcurrentHashMap.png)
 
-
+ConcurrentHashMap不允许null key和null value,它使用synachronized关键字实现了现场安全,数据结构与HashMap一样,都是数组+链表+红黑树.因此如果要使用线程安全的HashMap,一般使用这个
 
 ### 参考来源
 
